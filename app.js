@@ -18,16 +18,45 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/pizza", (req, res, next) => {
-  res.status(418).json({
-    message: "Give me some zaaaa please!"
-  });
+app.get("/pizza", (request, response, next) => {
+  if (request.query.secret === "SECRETPASSCODE") {
+    response.status(200).json({
+      message: "Mmmm pizza"
+    });
+  } else {
+    response.status(401).json({
+      message: "No pizza for you"
+    });
+  }
 });
 
 app.get("/my/name/is/:name", (req, res, next) => {
   console.log(req.params);
   res.json({
     message: `Hello, ${req.params.name}!`
+  });
+});
+
+app.get("/ping", (req, res, next) => {
+  res.status(200).json({
+    message: "pong"
+  });
+});
+
+app.post("/message", (req, res, next) => {
+  const message = "Message received!";
+  const { content } = req.query;
+  res.status(201).json({
+    message,
+    content
+  });
+});
+
+app.delete("/messages/:id", (req, res, next) => {
+  const { id } = req.params;
+  const message = `Delete message ${id}`;
+  res.status(200).json({
+    message
   });
 });
 

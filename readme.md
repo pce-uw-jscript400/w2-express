@@ -215,6 +215,8 @@ app.get("/my/name/is/:username", (req, res, next) => {
 
 * **Your Answer:**
 
+### I'm still fuzzy on this topic, but it seems like middlewares are functions that give you the ability to layer in conditional logic to your app that is blocking and can make your development go easier. It's likely not someting you'd want to utilize in a production environment.
+
 ---
 
 - [ ] Take a moment to read through the following code that is already in `app.js`. If you need, take a look at the [morgan](https://www.npmjs.com/package/morgan) and [body-parser](https://www.npmjs.com/package/body-parser) packages on NPM:
@@ -228,6 +230,7 @@ app.get("/my/name/is/:username", (req, res, next) => {
 * **Question:** Describe the purpose of both morgan and body-parser. Why do you think morgan is only being run when the application is run in development mode?
 
 * **Your Answer:**
+  `morgan` is a middleware that gives you the ability to create custom logging when developing your apps. `body-parser` is a middleware that gives you the ability to parse JSON data being submitted via HTTP `POST` request.
 
 ---
 
