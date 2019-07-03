@@ -44,7 +44,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Why do we get a response when we go to `/` but not `/notfound`?
 
-* **Your Answer:** The route `/notfound` has not been defined so it returns 404
+* **Your Answer:** The route `/notfound` has not been defined so it returns status code 404.
 
 ---
 
@@ -56,7 +56,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What are headers? What values do you recognize?
 
-* **Your Answer:**
+* **Your Answer:** Headers are like meta data information about the request. I recognize Content-Type, content-length and date as being fairly standard params. 
 
 ---
 
@@ -67,7 +67,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Where can you find this `console.log()` statement? How can you change the headers that are sent in Postman?
 
-* **Your Answer:**
+* **Your Answer:** The console log can be viewed in the terminal. To change the headers being sent, you can add custom values in the `Headers` tab right below the URL entry field. 
 
 ---
 
@@ -78,7 +78,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What are query parameters? Try going to a couple of your favorite websites and paste an example of query parameters being used.
 
-* **Your Answer:**
+* **Your Answer:** Query parameters are key:value pairs entered into the URL. 
 
 ---
 
@@ -92,7 +92,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** When does `app.use()` get called?
 
-* **Your Answer:**
+* **Your Answer:** When a request is made.
 
 ---
 
@@ -108,7 +108,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What type of thing is `app` and what is its purpose?
 
-* **Your Answer:** App is a function and various its attached methods. 
+* **Your Answer:** App is a function and its various attached methods. 
 
 * **Question:** What type of thing is `app.get()` and what is its purpose?
 
@@ -183,7 +183,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** The above can be described as middleware. Describe what middleware is in your own words and how it differs from building a route.
 
-* **Your Answer:**
+* **Your Answer:** Middleware is like a utility or helper for processessing requests. A route is an endpoint a client can make a request to. That endpoint would likely use that middleware to help process said request.
 
 ---
 
@@ -197,7 +197,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Describe the purpose of both morgan and body-parser. Why do you think morgan is only being run when the application is run in development mode?
 
-* **Your Answer:**
+* **Your Answer:** Morgan is a logging utility for monitoring the requests made to the server. Body parser is a utility for processing response objects as json. Morgan is only run in development mode because it wouldn't serve much purpose in a production environment. Rarely would a developer need realtime logging of the requests not to mention it could have unintended performance impact.
 
 ---
 
@@ -208,7 +208,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Try commenting out `body-parser` in your application. What happens and why?
 
-* **Your Answer:**
+* **Your Answer:** Nothing was logged. This is likely because the response object has not been properly handled or parsed.
 
 ---
 

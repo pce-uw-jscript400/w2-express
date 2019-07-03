@@ -3,13 +3,17 @@ const express = require('express')
 const app = express()
 
 if (NODE_ENV === 'development') app.use(require('morgan')('dev'))
-app.use(require('body-parser').json())
+//app.use(require('body-parser').json())
 
-
+app.use((req,res,next) => {
+  console.log('In the server!')
+  next()
+})
 
 app.get('/', (req, res, next) => {
-  console.log(req.headers)
-  console.log(req.query)
+  //console.log(req.headers)
+  //console.log(req.query)
+  console.log(req.body)
   res.json({
     message: 'Hello, Express!'
   })
@@ -32,11 +36,6 @@ app.get('/ping', (req, res, next) => {
   })
 })
 
-app.use((req,res,next) => {
-  console.log('In the server!')
-  next()
-})
-
 app.post('/message', (req, res, next) => {
   res.status(201).json({
     message: 'Message received!',
@@ -49,7 +48,6 @@ app.delete('/messages/:id', (req, res, next) => {
     message: `Deleted message ${req.params.id}`
   })
 })
-
 
 const listener = () => console.log(`Listening on Port ${PORT}`)
 app.listen(PORT, listener)
