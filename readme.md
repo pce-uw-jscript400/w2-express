@@ -172,7 +172,16 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 * **Question:** What is `req.params`? What else will you need to change if you change the path to `/my/name/is/:username`?
 
 * **Your Answer:**
-  `req.params` is an object and gives you access to any properties available on the named route. For example, in `/my/name/is/:username`, I would need to change `/:username` for something like `/q=examplename`.
+  `req.params` is an object and gives you access to any properties available on the named route. You would need to change any `params` based off of what you define, so:
+
+```js
+app.get("/my/name/is/:username", (req, res, next) => {
+  console.log(req.params);
+  res.json({
+    message: `Hello, ${req.params.username}!`
+  });
+});
+```
 
 ---
 
