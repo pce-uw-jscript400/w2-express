@@ -13,9 +13,49 @@ const app = express()
 if (NODE_ENV === 'development') app.use(require('morgan')('dev'))
 app.use(require('body-parser').json())
 
+app.get('/', (req, res, next) => {
+  res.json({
+    message: 'Hello, Express!'
+  })
+})
+
+// GET / ping
+//   -> Status Code: 200
+//   -> Response Body: { message: 'pong' }
+
+app.get('/ping', (req, res, next) => {
+  const status = 200
+  res.status(status).json({ message: 'pong' })
+})
+
+// POST / message ? content = hello
+//   -> Status Code: 201
+//   -> Response Body: { message: 'Message received!', content: 'hello' }
+
+// Application-level middleware
 app.use((req, res, next) => {
   console.log('In the server!')
   next()
+})
+
+app.post('/message', (req, res, next) => {
+  const status = 201
+  const message = 'Message received!'
+  console.log(req.body)
+  const { content } = req.body
+  
+  res.status(status).json({ message, content })
+})
+
+// DELETE / messages / 4
+//   -> Status Code: 200
+//   -> Response Body: { message: 'Deleted message 4' }
+app.delete('/messages/:id', (req, res, next) => {
+  const status = 200
+  const { id } = req.params
+  const message = `Deleted message ${id}`
+  
+  res.status(status).json({ message })
 })
 
 app.get('/pizza', (request, response, next) => {
@@ -30,10 +70,10 @@ app.get('/pizza', (request, response, next) => {
   }
 })
 
-app.get('/', (req, res, next) => {
-  console.log(req.query)
+app.get('/my/name/is/:name', (req, res, next) => {
+  console.log(req.params)
   res.json({
-    message: 'Hello, Express!'
+    message: `Hello, ${req.params.name}!`
   })
 })
 
