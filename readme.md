@@ -28,7 +28,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Why do you think `node_modules/` is included in there?
 
-* **Your Answer:**
+* **Your Answer:** You don't need to track changes for node modules. Node packages are readily available via NPM and therefore are not required to be packaged with your code. Running `npm install` will download and install all required dependencies for your project. node_modules can very quickly become bloated and storage resource intensive, making it more effective to install those dependencies separately.
 
 ---
 
@@ -36,7 +36,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Take a minute to look through the installed packages and describe the purpose of each one. Don't just copy and paste from something online!
 
-* **Your Answer:**
+* **Your Answer:** Body parser appears to parse response data. Express is a simple javascript server library for serving files from a Node backend. Morgan is a testing framework. Nodemon appears to be a task runner.
 
 ---
 
@@ -44,7 +44,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Why do we get a response when we go to `/` but not `/notfound`?
 
-* **Your Answer:**
+* **Your Answer:** The route `/notfound` has not been defined so it returns 404
 
 ---
 
@@ -108,35 +108,35 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What type of thing is `app` and what is its purpose?
 
-* **Your Answer:**
+* **Your Answer:** App is a function and various its attached methods. 
 
 * **Question:** What type of thing is `app.get()` and what is its purpose?
 
-* **Your Answer:**
+* **Your Answer:** It is a function and it defines a route and the callback function to handle the request and response parameters. 
 
 * **Question:** What type of thing is `/` and what is its purpose?
 
-* **Your Answer:**
+* **Your Answer:** `/` is a string representing a route. This is the specified url where the request will be made. 
 
 * **Question:** What type of thing is `req` and what does it represent in the callback?
 
-* **Your Answer:**
+* **Your Answer:** It is the request object. It references the parameters included in the the request for the route (headers, query parameters, etc)
 
 * **Question:** What type of thing is `res` and what does it represent in the callback?
 
-* **Your Answer:**
+* **Your Answer:** it is the response object. It is what is returned from the request. 
 
 * **Question:** What type of thing is `next` and what does it represent in the callback?
 
-* **Your Answer:**
+* **Your Answer:** it is a function that informs the application to continue running the application.
 
 * **Question:** Instead of a `GET` request, lets say we want to listen in for a `POST` request. What do you think you needs to change?
 
-* **Your Answer:**
+* **Your Answer:** change `app.get()` to `app.post()`
 
 * **Question:** Right now all of our requests will return a "Status Code" of 200. Define what a status code is and research how you could change it.
 
-* **Your Answer:**
+* **Your Answer:** a status code indicates the whether a request was successful or not and a reason for that status. you can set a request status code by returning `res.status(__code__)`
 
 ---
 
@@ -152,7 +152,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What is `req.params`? What else will you need to change if you change the path to `/my/name/is/:username`?
 
-* **Your Answer:**
+* **Your Answer:** It is the request parameters object. If it was changed to `:username` the template string would have to be updated to `${req.params.username}`.
 
 ---
 
