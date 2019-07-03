@@ -28,7 +28,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Why do you think `node_modules/` is included in there?
 
-* **Your Answer:**
+* **Your Answer: they are common files that are not tracked or dont need to be tracked
 
 ---
 
@@ -36,7 +36,8 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Take a minute to look through the installed packages and describe the purpose of each one. Don't just copy and paste from something online!
 
-* **Your Answer:**
+* **Your Answer: test and devDependencies - are packages that are not needed after deployment nad are not pushed to production
+express minimized 
 
 ---
 
@@ -44,7 +45,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Why do we get a response when we go to `/` but not `/notfound`?
 
-* **Your Answer:**
+* **Your Answer: we havent set a route
 
 ---
 
@@ -56,7 +57,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What are headers? What values do you recognize?
 
-* **Your Answer:**
+* **Your Answer:metadata about the request such as the time, length, connection type, server type, possibley cookies, content type, 
 
 ---
 
@@ -67,8 +68,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Where can you find this `console.log()` statement? How can you change the headers that are sent in Postman?
 
-* **Your Answer:**
-
+* **Your Answer: in the terminal
 ---
 
 - [ ] Add the following line **above** the `res.json()` line in your `app.js` file; then, make a request again but this time change the URL to the following: `http://localhost:5000?course=javascript`
@@ -78,7 +78,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What are query parameters? Try going to a couple of your favorite websites and paste an example of query parameters being used.
 
-* **Your Answer:**
+* **Your Answer:anything after ? you have a key value pair.  for about course is the key and javascript is the value
 
 ---
 
@@ -108,35 +108,35 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What type of thing is `app` and what is its purpose?
 
-* **Your Answer:**
+* **Your Answer: an instance of an express server router controller to direct routes
 
 * **Question:** What type of thing is `app.get()` and what is its purpose?
 
-* **Your Answer:**
+* **Your Answer:a path director, if the path matches it directs to an action
 
 * **Question:** What type of thing is `/` and what is its purpose?
 
-* **Your Answer:**
+* **Your Answer: a path heirchical notation
 
 * **Question:** What type of thing is `req` and what does it represent in the callback?
 
-* **Your Answer:**
+* **Your Answer:request - information requested maybe parameters
 
 * **Question:** What type of thing is `res` and what does it represent in the callback?
 
-* **Your Answer:**
+* **Your Answer:response, what the server (database) retruns from a request
 
 * **Question:** What type of thing is `next` and what does it represent in the callback?
 
-* **Your Answer:**
+* **Your Answer:it is a function that keeps the stream flowing down, if the first app does not match it goes to the next app path
 
 * **Question:** Instead of a `GET` request, lets say we want to listen in for a `POST` request. What do you think you needs to change?
 
-* **Your Answer:**
+* **Your Answer: it is from the client telling the server to create, update or delete an object
 
 * **Question:** Right now all of our requests will return a "Status Code" of 200. Define what a status code is and research how you could change it.
 
-* **Your Answer:**
+* **Your Answer:satus code indicate the success or failure of a request or return status - 200 is success, there are several like not found, or unauthorized, they let the client know why or where a request failed or was successful or redirected. Add a.status method
 
 ---
 
@@ -152,7 +152,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What is `req.params`? What else will you need to change if you change the path to `/my/name/is/:username`?
 
-* **Your Answer:**
+* **Your Answer:routing params, change .name to .username
 
 ---
 
