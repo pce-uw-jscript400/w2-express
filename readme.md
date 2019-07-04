@@ -28,7 +28,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Why do you think `node_modules/` is included in there?
 
-* **Your Answer:**
+* **Your Answer:** `node_modules/` is included in the `.gitignore` file so that our node modules do not get added to our repo/github. Adding all of them would be lots of unncessary revision tracking.
 
 ---
 
@@ -36,7 +36,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Take a minute to look through the installed packages and describe the purpose of each one. Don't just copy and paste from something online!
 
-* **Your Answer:**
+* **Your Answer:** `body-parser` is a package for parsing requests before handlers. `express` is the server framework that will run our server. `morgan` is an HTTP request logger that simply logs requests. `nodemon` will automatically reboot the the server when it detects that files on the server have changed.
 
 ---
 
@@ -44,7 +44,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Why do we get a response when we go to `/` but not `/notfound`?
 
-* **Your Answer:**
+* **Your Answer:** Because we haven't specified a  `/notfound` route for our server.
 
 ---
 
@@ -56,7 +56,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What are headers? What values do you recognize?
 
-* **Your Answer:**
+* **Your Answer:** Headers are a set of information about the response you are about to receive, this can include what kind of content it is, who sent the content to you, the charset of the content. In general a set of instructions for the content.
 
 ---
 
@@ -67,7 +67,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Where can you find this `console.log()` statement? How can you change the headers that are sent in Postman?
 
-* **Your Answer:**
+* **Your Answer:** This `console.log()` statement is echoed in my terminal. You can change the headers in Postman by using the "headers" tab when you send your request.
 
 ---
 
@@ -78,7 +78,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What are query parameters? Try going to a couple of your favorite websites and paste an example of query parameters being used.
 
-* **Your Answer:**
+* **Your Answer:** query parameters are parameters passed to a request via a URL that can be packaged by Express
 
 ---
 
@@ -92,7 +92,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** When does `app.use()` get called?
 
-* **Your Answer:**
+* **Your Answer:** `app.use()` gets called before any server request. Next is continue to the next route that matches.
 
 ---
 
@@ -108,35 +108,35 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What type of thing is `app` and what is its purpose?
 
-* **Your Answer:**
+* **Your Answer:** `app` is technically a function, but looks more like an object. It is the server application and its purpose is to handle all requests.
 
 * **Question:** What type of thing is `app.get()` and what is its purpose?
 
-* **Your Answer:**
+* **Your Answer:** `app.get()` is a function that is a property of `app` and define a route for GET requests.
 
 * **Question:** What type of thing is `/` and what is its purpose?
 
-* **Your Answer:**
+* **Your Answer:** `/` is a string & route that when matched, will respond with the result.
 
 * **Question:** What type of thing is `req` and what does it represent in the callback?
 
-* **Your Answer:**
+* **Your Answer:** `req` is an object and it represents the request from the client.
 
 * **Question:** What type of thing is `res` and what does it represent in the callback?
 
-* **Your Answer:**
+* **Your Answer:**  `res` is also an object and it represents the response from the server.
 
 * **Question:** What type of thing is `next` and what does it represent in the callback?
 
-* **Your Answer:**
+* **Your Answer:** `next` is a function and it represents a continue statement or next command, essentially letting the server to move on to the next available route. Often this is used for middleware.
 
 * **Question:** Instead of a `GET` request, lets say we want to listen in for a `POST` request. What do you think you needs to change?
 
-* **Your Answer:**
+* **Your Answer:** If listening for a `POST` request, we'd need to go from `app.get()` to `app.post()`. All sorts of request methods are available.
 
 * **Question:** Right now all of our requests will return a "Status Code" of 200. Define what a status code is and research how you could change it.
 
-* **Your Answer:**
+* **Your Answer:** A status code is a code that lets the client know the status of the response. Other common ones are 404 (moved/not found) or 500 (server error).
 
 ---
 
@@ -152,7 +152,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What is `req.params`? What else will you need to change if you change the path to `/my/name/is/:username`?
 
-* **Your Answer:**
+* **Your Answer:** req.params in an object that contains the parameters passed to the URL. `Hello, ${req.params.name}!` would need to become `Hello, ${req.params.username}!`
 
 ---
 
@@ -183,7 +183,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** The above can be described as middleware. Describe what middleware is in your own words and how it differs from building a route.
 
-* **Your Answer:**
+* **Your Answer:** Middleware is used for administration of the server, logging, authentication, all sorts of different use cases. Order does matter.
 
 ---
 
@@ -197,7 +197,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Describe the purpose of both morgan and body-parser. Why do you think morgan is only being run when the application is run in development mode?
 
-* **Your Answer:**
+* **Your Answer:** Morgan is only on dev because the client will never see this when it's live, it's only useful for us when debugging.
 
 ---
 
@@ -208,7 +208,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Try commenting out `body-parser` in your application. What happens and why?
 
-* **Your Answer:**
+* **Your Answer:** `body-parser` gives us access to req.body and allows us to parse it. Generally the body comes in as a string and does more of the leg work for us to make it easier.
 
 ---
 
@@ -219,27 +219,27 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
   const { generate: generateId } = require('shortid')
   ```
 
-* **Your Answer:**
+* **Your Answer:** This line is setting a destructure constant object to shortid's generate function.
 
 * **Question:** What routes are currently available to you as part of this application?
 
-* **Your Answer:**
+* **Your Answer:** `/vegetables` and `/vegetables/:id` are currently available. `/vegetables` has both POST and GET.
 
 * **Question:** Look for `helpers.validate` in the `app.js` file. What is this and how does it work?
 
-* **Your Answer:**
+* **Your Answer:** `helpers.validate` is a function we are importing from a `helpers.js` file that validates a request. It is middleware. It declares what requests should take.
 
 * **Question:** Try creating a new vegetable. Then, try restarting your server. What happens to the data you posted and why?
 
-* **Your Answer:**
+* **Your Answer:** The data is overwritten because there is no persistant state.
 
 * **Question:** Take a look at the last two `app.use()` methods at the end of the file. Describe how both work and what `err` is refers to.
 
-* **Your Answer:**
+* **Your Answer:** The first statement passes an object to the next function that includes a status and message, the second statement destructures that object and responds with it. Err is that created object and it refers to a general error. Since the last function has four parameters it's an error handler.
 
 * **Question:** Take a look at the `package.json` file. What is [standardjs](https://standardjs.com/) and what will it do for you?
 
-* **Your Answer:**
+* **Your Answer:** It's a javascript linter and it will tell you if you are writing code that is bad or against AirBnb's guidelines.
 
 #### Resources
 
