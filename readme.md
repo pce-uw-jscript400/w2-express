@@ -28,7 +28,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Why do you think `node_modules/` is included in there?
 
-* **Your Answer:**
+* **Your Answer:** We don't need to track the changes. If a user wants the files they can run npm install to get the modules.
 
 ---
 
@@ -36,7 +36,10 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Take a minute to look through the installed packages and describe the purpose of each one. Don't just copy and paste from something online!
 
-* **Your Answer:**
+* **Your Answer:** body-parser : parses the body of a request
+express : a framework for building web applications
+morgan : logging middleware
+nodemon : restarts a server when there are changes to the code
 
 ---
 
@@ -44,7 +47,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Why do we get a response when we go to `/` but not `/notfound`?
 
-* **Your Answer:**
+* **Your Answer:** We haven't set up a route for "/notfound" yet.
 
 ---
 
@@ -56,7 +59,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What are headers? What values do you recognize?
 
-* **Your Answer:**
+* **Your Answer:** Headers are metadata. I recognize Express and json
 
 ---
 
@@ -67,7 +70,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Where can you find this `console.log()` statement? How can you change the headers that are sent in Postman?
 
-* **Your Answer:**
+* **Your Answer:** You can find it in the terminal window. You can change the headers in Postman by going to the key/value section.
 
 ---
 
@@ -78,7 +81,9 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What are query parameters? Try going to a couple of your favorite websites and paste an example of query parameters being used.
 
-* **Your Answer:**
+* **Your Answer:** They send back specific information that you request.
+
+Ex: https://twitter.com/search?q=test&src=typd
 
 ---
 
@@ -92,7 +97,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** When does `app.use()` get called?
 
-* **Your Answer:**
+* **Your Answer:** Everytime, at the beginning of a call.
 
 ---
 
@@ -108,35 +113,35 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What type of thing is `app` and what is its purpose?
 
-* **Your Answer:**
+* **Your Answer:** An object. It is there to give access to its methods.
 
 * **Question:** What type of thing is `app.get()` and what is its purpose?
 
-* **Your Answer:**
+* **Your Answer:** A method. It defines a route (a get request).
 
 * **Question:** What type of thing is `/` and what is its purpose?
 
-* **Your Answer:**
+* **Your Answer:** A root. It is supposed to be the home route.
 
 * **Question:** What type of thing is `req` and what does it represent in the callback?
 
-* **Your Answer:**
+* **Your Answer:** An object. It manages the request.
 
 * **Question:** What type of thing is `res` and what does it represent in the callback?
 
-* **Your Answer:**
+* **Your Answer:** An object. It manages the response.
 
 * **Question:** What type of thing is `next` and what does it represent in the callback?
 
-* **Your Answer:**
+* **Your Answer:** A function. It moves to the next function (if there is one).
 
 * **Question:** Instead of a `GET` request, lets say we want to listen in for a `POST` request. What do you think you needs to change?
 
-* **Your Answer:**
+* **Your Answer:** You should use app.post()
 
 * **Question:** Right now all of our requests will return a "Status Code" of 200. Define what a status code is and research how you could change it.
 
-* **Your Answer:**
+* **Your Answer:** It tells you if the request worked as expected. You can change it with something like res.status(404).json()
 
 ---
 
@@ -152,7 +157,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What is `req.params`? What else will you need to change if you change the path to `/my/name/is/:username`?
 
-* **Your Answer:**
+* **Your Answer:** It is the request parameters that are passed in. The message needs to use "req.params.username"
 
 ---
 
@@ -183,7 +188,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** The above can be described as middleware. Describe what middleware is in your own words and how it differs from building a route.
 
-* **Your Answer:**
+* **Your Answer:** Middle handles requests and the setup of the application. It always runs, unlike routes.
 
 ---
 
@@ -197,7 +202,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Describe the purpose of both morgan and body-parser. Why do you think morgan is only being run when the application is run in development mode?
 
-* **Your Answer:**
+* **Your Answer:** Morgan is used for logging, and we don't need that in production so it is only in dev mode. Body parser parses the body of the request.
 
 ---
 
@@ -208,7 +213,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Try commenting out `body-parser` in your application. What happens and why?
 
-* **Your Answer:**
+* **Your Answer:**The app returns undefined because there isn't access to req.body
 
 ---
 
@@ -219,27 +224,28 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
   const { generate: generateId } = require('shortid')
   ```
 
-* **Your Answer:**
+* **Your Answer:** It generates a short id which is used for urls.
 
 * **Question:** What routes are currently available to you as part of this application?
 
-* **Your Answer:**
+* **Your Answer:** /vegetables and /vegetables/:id
+
 
 * **Question:** Look for `helpers.validate` in the `app.js` file. What is this and how does it work?
 
-* **Your Answer:**
+* **Your Answer:** It is a helper function that validates a request by checking things like empty body.
 
 * **Question:** Try creating a new vegetable. Then, try restarting your server. What happens to the data you posted and why?
 
-* **Your Answer:**
+* **Your Answer:** It is not saved because is isn't saved to somewhere like a database.
 
 * **Question:** Take a look at the last two `app.use()` methods at the end of the file. Describe how both work and what `err` is refers to.
 
-* **Your Answer:**
+* **Your Answer:** The first one creates a 404 error message. The second returns a json from the error message. err is the error object.
 
 * **Question:** Take a look at the `package.json` file. What is [standardjs](https://standardjs.com/) and what will it do for you?
 
-* **Your Answer:**
+* **Your Answer:** It formats code.
 
 #### Resources
 
