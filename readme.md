@@ -272,30 +272,32 @@ We get an error stating `Cannot destructure property 'content' of 'undefind' or 
 
 * **Your Answer:**
 
-* **Question:** What routes are currently available to you as part of this application?
+ShortId generates unique and short ids that are URL friendly and that's how we seem to be using it inside the app.
 
-* **Your Answer:**
+- **Question:** What routes are currently available to you as part of this application?
 
-- `/vegetables`
-- `/vegetables/:id`
+- **Your Answer:**
 
-* **Question:** Look for `helpers.validate` in the `app.js` file. What is this and how does it work?
+* `/vegetables`
+* `/vegetables/:id`
 
-* **Your Answer:**
+- **Question:** Look for `helpers.validate` in the `app.js` file. What is this and how does it work?
+
+- **Your Answer:**
 
   `helpers.validate` seems like it is giving us the ability to check for the validity of the `POST` request.
 
-* **Question:** Try creating a new vegetable. Then, try restarting your server. What happens to the data you posted and why?
+- **Question:** Try creating a new vegetable. Then, try restarting your server. What happens to the data you posted and why?
 
-* **Your Answer:**
+- **Your Answer:**
 
-* **Question:** Take a look at the last two `app.use()` methods at the end of the file. Describe how both work and what `err` is refers to.
+- **Question:** Take a look at the last two `app.use()` methods at the end of the file. Describe how both work and what `err` is refers to.
 
-* **Your Answer:**
+- **Your Answer:**
 
-* **Question:** Take a look at the `package.json` file. What is [standardjs](https://standardjs.com/) and what will it do for you?
+- **Question:** Take a look at the `package.json` file. What is [standardjs](https://standardjs.com/) and what will it do for you?
 
-* **Your Answer:**
+- **Your Answer:**
 
 #### Resources
 
