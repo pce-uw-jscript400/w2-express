@@ -28,25 +28,19 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Why do you think `node_modules/` is included in there?
 
-* **Your Answer:**
-
----
+* **Your Answer:** We want to exclude the 'node_modules' from our repository in production.
 
 - [ ] Take a look at the `package.json` file.
 
 * **Question:** Take a minute to look through the installed packages and describe the purpose of each one. Don't just copy and paste from something online!
 
-* **Your Answer:**
-
----
+* **Your Answer:** `nodemon` monitors file changes and restarts the node application if any changes detected. `body-parser` parses your request and converts it into a format from which you can easily extract relevant information that you may need. `express` is Node web framework, which is specifically designed for building single and multi-page applications. `morgan` is used for logging request details, it generates logs automatically. 
 
 - [ ] Try going to [http://localhost:5000/notfound](http://localhost:5000/notfound)
 
 * **Question:** Why do we get a response when we go to `/` but not `/notfound`?
 
-* **Your Answer:**
-
----
+* **Your Answer:** We haven't specified the "notfound" path(route) yet
 
 - [ ] By default, browsers make `GET` requests when you go to a URL. Use [Postman](https://www.getpostman.com) to make a similar `GET` request.
 
@@ -56,9 +50,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What are headers? What values do you recognize?
 
-* **Your Answer:**
-
----
+* **Your Answer:** Postman automatically attaches the correct Content-Type header for GET requests (type, charset length, date). 
 
 - [ ] Add the following line **above** the `res.json()` line in your `app.js` file; then, make the request again.
   ```js
@@ -67,9 +59,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Where can you find this `console.log()` statement? How can you change the headers that are sent in Postman?
 
-* **Your Answer:**
-
----
+* **Your Answer:** We can find `console.log()` statement in the terminal. We can add new headers - in Postman - tab 'Headers', enter new key/value.
 
 - [ ] Add the following line **above** the `res.json()` line in your `app.js` file; then, make a request again but this time change the URL to the following: `http://localhost:5000?course=javascript`
   ```js
@@ -78,9 +68,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What are query parameters? Try going to a couple of your favorite websites and paste an example of query parameters being used.
 
-* **Your Answer:**
-
----
+* **Your Answer:** Query parameters (additional information) passed to a url request and converted to a js object.
 
 - [ ] Before all of your routes, add the following:
   ```js
@@ -92,9 +80,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** When does `app.use()` get called?
 
-* **Your Answer:**
-
----
+* **Your Answer:** `app.use()`general function for every request to go throught, when `next` gets called keep it going to the next route that matches.
 
 - [ ] Take a moment to observe the basic structure of a **route** in Express.
   ```js
@@ -108,37 +94,35 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What type of thing is `app` and what is its purpose?
 
-* **Your Answer:**
+* **Your Answer:** Function and an object with method attached to it.
 
 * **Question:** What type of thing is `app.get()` and what is its purpose?
 
-* **Your Answer:**
+* **Your Answer:** we tell application to listen for GET requests on the / path, using the get() method.
 
 * **Question:** What type of thing is `/` and what is its purpose?
 
-* **Your Answer:**
+* **Your Answer:** the / path
 
 * **Question:** What type of thing is `req` and what does it represent in the callback?
 
-* **Your Answer:**
+* **Your Answer:** Request object
 
 * **Question:** What type of thing is `res` and what does it represent in the callback?
 
-* **Your Answer:**
+* **Your Answer:** Response object
 
 * **Question:** What type of thing is `next` and what does it represent in the callback?
 
-* **Your Answer:**
+* **Your Answer:** Next available matching route.
 
 * **Question:** Instead of a `GET` request, lets say we want to listen in for a `POST` request. What do you think you needs to change?
 
-* **Your Answer:**
+* **Your Answer:** We need to change it to app.post()
 
 * **Question:** Right now all of our requests will return a "Status Code" of 200. Define what a status code is and research how you could change it.
 
-* **Your Answer:**
-
----
+* **Your Answer:** Status code is respond from server. 200 means successful, 404 - not found, 500 - server error. We can change status by assigning Res - different status.
 
 - [ ] Add the following route to your application; then, make a request again but this time change the URL to the following, making sure to replace `<your-name` with your acutal name: `http://localhost:5000/my/name/is/<your-name>`.
   ```js
@@ -152,9 +136,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What is `req.params`? What else will you need to change if you change the path to `/my/name/is/:username`?
 
-* **Your Answer:**
-
----
+* **Your Answer:** req.params in an object that returns the value of the parameter with the specified name. We would change the message value to `req.params.username`.
 
 - [ ] Create three new routes as follows, testing each one as you go:
   ```
@@ -183,9 +165,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** The above can be described as middleware. Describe what middleware is in your own words and how it differs from building a route.
 
-* **Your Answer:**
-
----
+* **Your Answer:** Middleware are functions run between the client request and the server answer in a certain order.
 
 - [ ] Take a moment to read through the following code that is already in `app.js`. If you need, take a look at the [morgan](https://www.npmjs.com/package/morgan) and [body-parser](https://www.npmjs.com/package/body-parser) packages on NPM:
   ```js
@@ -197,9 +177,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Describe the purpose of both morgan and body-parser. Why do you think morgan is only being run when the application is run in development mode?
 
-* **Your Answer:**
-
----
+* **Your Answer:** `morgan` is used for logging request details in development only, for debugging purpose. Client will never see the terminal. `body-parser` parses your request and converts it into json form.
 
 - [ ] Update one of the `POST` routes you've created by adding the following code before the response is set. Then, try sending a request body using Postman to that route.
   ```js
@@ -208,9 +186,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Try commenting out `body-parser` in your application. What happens and why?
 
-* **Your Answer:**
-
----
+* **Your Answer:** Return underfined. it no longer provides access to req.body.
 
 - [ ] Visit the [Exercise: Express](https://github.com/pce-uw-jscript400/exercise-express) repository on GitHub. Follow the setup instructions and open the code in a code editor. Then, answer the following questions:
 
@@ -219,27 +195,27 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
   const { generate: generateId } = require('shortid')
   ```
 
-* **Your Answer:**
+* **Your Answer:** It generates a short id with ShortId package that creates short url-friendly unique ids. 
 
 * **Question:** What routes are currently available to you as part of this application?
 
-* **Your Answer:**
+* **Your Answer:** /vegetables and /vegetables/:id
 
 * **Question:** Look for `helpers.validate` in the `app.js` file. What is this and how does it work?
 
-* **Your Answer:**
+* **Your Answer:** helper function
 
 * **Question:** Try creating a new vegetable. Then, try restarting your server. What happens to the data you posted and why?
 
-* **Your Answer:**
+* **Your Answer:** After restartig, new vegetable not stores, because the data set with an empty array for vegetables in the begining of the file.
 
 * **Question:** Take a look at the last two `app.use()` methods at the end of the file. Describe how both work and what `err` is refers to.
 
-* **Your Answer:**
+* **Your Answer:** Error handler. `err` argument that refers to an error, object with two keys, destructured for message and status.
 
 * **Question:** Take a look at the `package.json` file. What is [standardjs](https://standardjs.com/) and what will it do for you?
 
-* **Your Answer:**
+* **Your Answer:** A formatter tool that automatically format code to follow js standart.
 
 #### Resources
 
