@@ -29,6 +29,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 * **Question:** Why do you think `node_modules/` is included in there?
 
 * **Your Answer:**
+
   Because we don't need git to keep track of all of the changes that are going on with any `node_modules` that we might have installed in our project.
 
 ---
@@ -38,6 +39,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 * **Question:** Take a minute to look through the installed packages and describe the purpose of each one. Don't just copy and paste from something online!
 
 * **Your Answer:**
+
   We have only one `devDependency`, `nodemon`, which is a required package during development. Nodemon will track any changes that are done in our project and then hot reload or auto restart your server, so that you can see those changes. Eliminates the need to manually restart your server when developing.
 
 `dependencies` are only required at runtime. We have three packages listed there, `express`, `body-parser`, and `morgan`. These are frameworks that give us some things that may solve problems, give us the ability to create features, or maybe give us some styling and layout for an app.
@@ -49,6 +51,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 * **Question:** Why do we get a response when we go to `/` but not `/notfound`?
 
 * **Your Answer:**
+
   Because we have not yet defined a path for the `/notfound` endpoint/route. `/` currently works, becuase we currently have the server setup to return a response `{"message":"Hello, Express!"}`.
 
 ---
@@ -62,6 +65,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 * **Question:** What are headers? What values do you recognize?
 
 * **Your Answer:**
+
   Expresss is powering it, the `Content-Type` looks familiar, and the `Date` information.
 
 ---
@@ -74,6 +78,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 * **Question:** Where can you find this `console.log()` statement? How can you change the headers that are sent in Postman?
 
 * **Your Answer:**
+
   You will find it in your terminal.
 
 ---
@@ -86,6 +91,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 * **Question:** What are query parameters? Try going to a couple of your favorite websites and paste an example of query parameters being used.
 
 * **Your Answer:**
+
   It's a way to define additional information when you make a `GET` request. They are often used to define or specify information in a request.
 
 ---
@@ -101,7 +107,8 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 * **Question:** When does `app.use()` get called?
 
 * **Your Answer:**
-  It gets called when there is a match???
+
+### It gets called when there is a match???
 
 ---
 
@@ -118,43 +125,49 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 * **Question:** What type of thing is `app` and what is its purpose?
 
 * **Your Answer:**
-  `app` is a middleware function. It's job is to parse incoming requests with JSON payloads.
 
-### it's a function and has many different methods on it, one of which is `.get()`.
+  `app` is a middleware function. It's job is to parse incoming requests with JSON payloads and has many different methods on it, one of which is `.get()`.
 
 - **Question:** What type of thing is `app.get()` and what is its purpose?
 
 - **Your Answer:**
+
   `app.get()` it's a function and will return the HTTP request header. It will look to see if there is a match with the input.
 
 - **Question:** What type of thing is `/` and what is its purpose?
 
 - **Your Answer:**
+
   `/` is the root or index path/route. It's purpose is to return content that has been requested when `app.get()` has found a match for it.
 
 - **Question:** What type of thing is `req` and what does it represent in the callback?
 
 - **Your Answer:**
+
   `req` is an object representing the HTTP request.
 
 - **Question:** What type of thing is `res` and what does it represent in the callback?
 
 - **Your Answer:**
-  `res` is an object representing the HTTP response that Express app sends.
+
+  `res` is an object and it represents the HTTP response that Express app sends.
 
 - **Question:** What type of thing is `next` and what does it represent in the callback?
 
 - **Your Answer:**
-  `next()` is a callback function and will represent the next matching route.
+
+  `next()` is a callback function and tells the app to continue forward and will represent the next matching route.
 
 - **Question:** Instead of a `GET` request, lets say we want to listen in for a `POST` request. What do you think you needs to change?
 
 - **Your Answer:**
+
   We can just swap out the `app.get()` to be `app.post()`.
 
 - **Question:** Right now all of our requests will return a "Status Code" of 200. Define what a status code is and research how you could change it.
 
 - **Your Answer:**
+
   Status codes help convey whether or not a HTTP request was successfully completed. We can chain on the `status()` method like the following `res.status(418)`.
 
 ---
@@ -172,7 +185,8 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 * **Question:** What is `req.params`? What else will you need to change if you change the path to `/my/name/is/:username`?
 
 * **Your Answer:**
-  `req.params` is an object and gives you access to any properties available on the named route. You would need to change any `params` based off of what you define, so:
+
+  `req.params` is an object and gives you access to any properties available on the named route. You would need to change any `params` based off of what you define, so for example:
 
 ```js
 app.get("/my/name/is/:username", (req, res, next) => {
@@ -230,6 +244,7 @@ app.get("/my/name/is/:username", (req, res, next) => {
 * **Question:** Describe the purpose of both morgan and body-parser. Why do you think morgan is only being run when the application is run in development mode?
 
 * **Your Answer:**
+
   `morgan` is a middleware that gives you the ability to create custom logging when developing your apps. `body-parser` is a middleware that gives you the ability to parse JSON data being submitted via HTTP `POST` request.
 
 ---
@@ -259,9 +274,14 @@ app.get("/my/name/is/:username", (req, res, next) => {
 
 * **Your Answer:**
 
+- `/vegetables`
+- `/vegetables/:id`
+
 * **Question:** Look for `helpers.validate` in the `app.js` file. What is this and how does it work?
 
 * **Your Answer:**
+
+  `helpers.validate` seems like it is giving us the ability to check for the validity of the `POST` request.
 
 * **Question:** Try creating a new vegetable. Then, try restarting your server. What happens to the data you posted and why?
 
