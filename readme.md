@@ -108,7 +108,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Your Answer:**
 
-### It gets called when there is a match???
+`app.use()` is a general function for every request to go through and is called when it finds a match for a specified path.
 
 ---
 
@@ -229,7 +229,7 @@ app.get("/my/name/is/:username", (req, res, next) => {
 
 * **Your Answer:**
 
-### I'm still fuzzy on this topic, but it seems like middlewares are functions that give you the ability to layer in conditional logic to your app that is blocking and can make your development go easier. It's likely not someting you'd want to utilize in a production environment.
+Middlewares are functions that give you the ability to access the HTTP request and response objects. It can also access any next middleware functions that are part of an Express app's request-response cycle. It differs from building a route by telling the app to perform certain tasks programmatically before/after it finds a matching route.
 
 ---
 
