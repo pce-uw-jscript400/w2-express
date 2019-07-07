@@ -258,6 +258,8 @@ Middlewares are functions that give you the ability to access the HTTP request a
 
 * **Your Answer:**
 
+We get an error stating `Cannot destructure property 'content' of 'undefind' or 'null'`. This happens because `body-parser` gives us access to `req.body`. By commenting it out, `body-parser` doesn't know what to assume about the request coming in, in this example, a JSON object and so `content` comes back as `undefined`.
+
 ---
 
 - [ ] Visit the [Exercise: Express](https://github.com/pce-uw-jscript400/exercise-express) repository on GitHub. Follow the setup instructions and open the code in a code editor. Then, answer the following questions:
