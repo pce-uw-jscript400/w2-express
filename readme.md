@@ -29,6 +29,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 * **Question:** Why do you think `node_modules/` is included in there?
 
 * **Your Answer:**
+We want them hidden from git. We don't need to track any of the changes in node modules.
 
 ---
 
@@ -37,7 +38,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 * **Question:** Take a minute to look through the installed packages and describe the purpose of each one. Don't just copy and paste from something online!
 
 * **Your Answer:**
-
+Body Parser is used but node to parse the body. Express is the framework for the app.  morgan is a requesdr logger that is needed for node. nodenom automatically updates the server.
 ---
 
 - [ ] Try going to [http://localhost:5000/notfound](http://localhost:5000/notfound)
@@ -45,6 +46,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 * **Question:** Why do we get a response when we go to `/` but not `/notfound`?
 
 * **Your Answer:**
+We set a route for '/' but not for '/not found'
 
 ---
 
@@ -57,6 +59,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 * **Question:** What are headers? What values do you recognize?
 
 * **Your Answer:**
+These are headers returned by your server. Date, Powered By, Character Set and the Content Length.
 
 ---
 
@@ -68,6 +71,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 * **Question:** Where can you find this `console.log()` statement? How can you change the headers that are sent in Postman?
 
 * **Your Answer:**
+You can find the console.log() in the terminal. We can create a function the sets the headers using res.set( ), and defining the header name and the path being sent.
 
 ---
 
@@ -78,7 +82,10 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What are query parameters? Try going to a couple of your favorite websites and paste an example of query parameters being used.
 
+
 * **Your Answer:**
+Query parameters are a set of parameters attached to a url that define the content on the data that is being passed.
+Target: https://www.target.com/finds/instagram?lnk=HPtrending_TS
 
 ---
 
@@ -93,7 +100,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 * **Question:** When does `app.use()` get called?
 
 * **Your Answer:**
-
+It gets called everytime.
 ---
 
 - [ ] Take a moment to observe the basic structure of a **route** in Express.
@@ -109,35 +116,43 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 * **Question:** What type of thing is `app` and what is its purpose?
 
 * **Your Answer:**
+app is an express function that starts the server.
 
 * **Question:** What type of thing is `app.get()` and what is its purpose?
 
 * **Your Answer:**
+app.get() is a route method that is used to handle get requests.
 
 * **Question:** What type of thing is `/` and what is its purpose?
 
 * **Your Answer:**
+It is the path, it defines the endpath.
 
 * **Question:** What type of thing is `req` and what does it represent in the callback?
 
 * **Your Answer:**
+req is an object, this is ths infomation about the request.
 
 * **Question:** What type of thing is `res` and what does it represent in the callback?
 
 * **Your Answer:**
+res is the response object.
 
 * **Question:** What type of thing is `next` and what does it represent in the callback?
 
 * **Your Answer:**
+next continues to the next route that matches.
 
 * **Question:** Instead of a `GET` request, lets say we want to listen in for a `POST` request. What do you think you needs to change?
 
 * **Your Answer:**
+Change app.get() to app.post().
+
 
 * **Question:** Right now all of our requests will return a "Status Code" of 200. Define what a status code is and research how you could change it.
 
 * **Your Answer:**
-
+Status codes indicate if the response to the server was sucessful or unsucessful.  res.status() will update the status code.
 ---
 
 - [ ] Add the following route to your application; then, make a request again but this time change the URL to the following, making sure to replace `<your-name` with your acutal name: `http://localhost:5000/my/name/is/<your-name>`.
@@ -153,6 +168,8 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 * **Question:** What is `req.params`? What else will you need to change if you change the path to `/my/name/is/:username`?
 
 * **Your Answer:**
+req.params are parameters taken ny the route.   You will need to change .name to .username.
+
 
 ---
 
@@ -181,10 +198,10 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
   })
   ```
 
-* **Question:** The above can be described as middleware. Describe what middleware is in your own words and how it differs from building a route.
+* **Question:** The above can be described as middleware. Describe what middleware is in your own words and how it differs from building a route. Technically route is a type of middleware.  In this case we are using .use to bind to app.
 
 * **Your Answer:**
-
+It can execute, make changes to req and res, and the cycle and move to the next middleware. The process is similar to building a route
 ---
 
 - [ ] Take a moment to read through the following code that is already in `app.js`. If you need, take a look at the [morgan](https://www.npmjs.com/package/morgan) and [body-parser](https://www.npmjs.com/package/body-parser) packages on NPM:
@@ -198,6 +215,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 * **Question:** Describe the purpose of both morgan and body-parser. Why do you think morgan is only being run when the application is run in development mode?
 
 * **Your Answer:**
+morgan is used for logging request details. The body-parser reads and stores the input from the body.  We do not use the body-parser on the devlopment server because if we are saving all the requests, then the server would come back slow.
 
 ---
 
@@ -209,6 +227,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 * **Question:** Try commenting out `body-parser` in your application. What happens and why?
 
 * **Your Answer:**
+We get an error and the body is undefined. We longer have access to the body.
 
 ---
 
@@ -220,30 +239,37 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
   ```
 
 * **Your Answer:**
+The code is being used to create a unique short version id that will be used for each new vegtable.
 
 * **Question:** What routes are currently available to you as part of this application?
 
 * **Your Answer:**
+You can get the vegetables, get vegetables with an id and post a new vegtables.
+
 
 * **Question:** Look for `helpers.validate` in the `app.js` file. What is this and how does it work?
 
 * **Your Answer:**
+This file checks to see if the name and the price are aviable in the body and if one of those inputs are not aviable then it spits out an error.
 
 * **Question:** Try creating a new vegetable. Then, try restarting your server. What happens to the data you posted and why?
 
 * **Your Answer:**
+The new post goes away becuse the data is not durable.
 
 * **Question:** Take a look at the last two `app.use()` methods at the end of the file. Describe how both work and what `err` is refers to.
 
 * **Your Answer:**
+It defines an err as a staus and a message.
 
 * **Question:** Take a look at the `package.json` file. What is [standardjs](https://standardjs.com/) and what will it do for you?
 
 * **Your Answer:**
+It automatcially formats our code and it makes it pretty!
 
 #### Resources
 
 - [Postman](https://www.getpostman.com)
 - [Express](https://expressjs.com/)
-- [morgan](https://www.npmjs.com/package/morgan) 
+- [morgan](https://www.npmjs.com/package/morgan)
 - [body-parser](https://www.npmjs.com/package/body-parser)
