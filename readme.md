@@ -249,15 +249,11 @@ app.get("/my/name/is/:username", (req, res, next) => {
 
 - **Question:** Take a look at the last two `app.use()` methods at the end of the file. Describe how both work and what `err` is refers to.
 
-- **Your Answer:**
-
-The first `app.use()` is a general purpse function that uses the `next()` middleware function to check for a valid route. It is using the `404 status code` which indicates the server was unable to find a matching route. It's also storing a template literal string in the message and inserting the type of HTTP method and pathame that it's receiving from the `request object`. The second `app.use()` is an error handler that is processing the `status` and the `message` off of the `response object` if there's an error. If there is, it uses destructuring, to unpack the values from `err` and stores them in `status` and `message`. These values are then used in `res.status()` and `res.json()` to store the status code and turns the `message` into a readable string.
+- **Your Answer:** The first `app.use()` is a general purpse function that uses the `next()` middleware function to check for a valid route. It is using the `404 status code` which indicates the server was unable to find a matching route. It's also storing a template literal string in the message and inserting the type of HTTP method and pathame that it's receiving from the `request object`. The second `app.use()` is an error handler that is processing the `status` and the `message` off of the `response object` if there's an error. If there is, it uses destructuring, to unpack the values from `err` and stores them in `status` and `message`. These values are then used in `res.status()` and `res.json()` to store the status code and turns the `message` into a readable string.
 
 - **Question:** Take a look at the `package.json` file. What is [standardjs](https://standardjs.com/) and what will it do for you?
 
-- **Your Answer:**
-
-StandardJS gives us some power to be lazy and write clean code :) There's no setup or configuration, it automatically formats your code and helps enforce a consistent style for your JS code, which can help cut down on review time and any potential back-and-forth between engineering team members.
+- **Your Answer:** StandardJS gives us some power to be lazy and write clean code :) There's no setup or configuration, it automatically formats your code and helps enforce a consistent style for your JS code, which can help cut down on review time and any potential back-and-forth between engineering team members.
 
 #### Resources
 
