@@ -28,7 +28,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Why do you think `node_modules/` is included in there?
 
-* **Your Answer:**
+* **Your Answer:** Because we don't want git to keep track of any additions or removal of any dependencies that we may need in developing this project. We also don't want to push it up into our github repository.
 
 ---
 
@@ -37,6 +37,9 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 * **Question:** Take a minute to look through the installed packages and describe the purpose of each one. Don't just copy and paste from something online!
 
 * **Your Answer:**
+`body-parser` Parsers the body of the request so that we can manipulate it in our code.
+`express` A js library that will make it easy for us to create servers.
+`morgan` A request logger for node.js that tells you what type of request(GET, POST, DELETE, PATCH) is coming into our server, the status of the response and how long it took.
 
 ---
 
@@ -44,7 +47,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Why do we get a response when we go to `/` but not `/notfound`?
 
-* **Your Answer:**
+* **Your Answer:** Because we haven't specified the path to the endpoint `/notfound`
 
 ---
 
@@ -56,7 +59,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What are headers? What values do you recognize?
 
-* **Your Answer:**
+* **Your Answer:** Headers are meta data about the response from the server. I recognize content-type and content-length from the example.
 
 ---
 
@@ -67,7 +70,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Where can you find this `console.log()` statement? How can you change the headers that are sent in Postman?
 
-* **Your Answer:**
+* **Your Answer:** The `console.log()` can be found in the terminal that we are using to run our code. You can change the headers on the request being sent in postman by adding a key and value under the headers tab below the url in Postman.
 
 ---
 
@@ -78,7 +81,8 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What are query parameters? Try going to a couple of your favorite websites and paste an example of query parameters being used.
 
-* **Your Answer:**
+* **Your Answer:** Query parameters are additional strings in the url that can be used to pass data to a server.
+`source=hp&ei=0rwiXcLdE4jB-wS77quQBw&q=movies`
 
 ---
 
@@ -92,7 +96,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** When does `app.use()` get called?
 
-* **Your Answer:**
+* **Your Answer:** `app.use()` gets called before the routes since it is before any of our routes.
 
 ---
 
@@ -108,35 +112,35 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What type of thing is `app` and what is its purpose?
 
-* **Your Answer:**
+* **Your Answer:** `app` is function with many methods.
 
 * **Question:** What type of thing is `app.get()` and what is its purpose?
 
-* **Your Answer:**
+* **Your Answer:** `app.get()` is a method that handles all GET requests.
 
 * **Question:** What type of thing is `/` and what is its purpose?
 
-* **Your Answer:**
+* **Your Answer:** `/` is the name of the route. In this cause its the default route.
 
 * **Question:** What type of thing is `req` and what does it represent in the callback?
 
-* **Your Answer:**
+* **Your Answer:** `req` is the entire request object from the client. It represents the body, headers and any query that my be passed.
 
 * **Question:** What type of thing is `res` and what does it represent in the callback?
 
-* **Your Answer:**
+* **Your Answer:** `res` is the entire response that we create in our code when this certain route is being requested by the client. It represents the entire response in the callback function.
 
 * **Question:** What type of thing is `next` and what does it represent in the callback?
 
-* **Your Answer:**
+* **Your Answer:** `next` is the continue action in the callback. It tells our code to continue with the response after the request is made.
 
 * **Question:** Instead of a `GET` request, lets say we want to listen in for a `POST` request. What do you think you needs to change?
 
-* **Your Answer:**
+* **Your Answer:** Change `app.get` into `app.post`.
 
 * **Question:** Right now all of our requests will return a "Status Code" of 200. Define what a status code is and research how you could change it.
 
-* **Your Answer:**
+* **Your Answer:** Status code is a tiny bit of information that tells the client what happened to their request. We can change the status by typing in .status(STATUSCODE) after the res..
 
 ---
 
@@ -152,7 +156,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What is `req.params`? What else will you need to change if you change the path to `/my/name/is/:username`?
 
-* **Your Answer:**
+* **Your Answer:** `req.params` is the route parameters. You would need to change the path string, and the response to `req.params.username`
 
 ---
 
@@ -183,7 +187,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** The above can be described as middleware. Describe what middleware is in your own words and how it differs from building a route.
 
-* **Your Answer:**
+* **Your Answer:** Middleware is the code that runs before any route is met. Middleware can be used to do run authentication, validation or test.
 
 ---
 
@@ -197,7 +201,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Describe the purpose of both morgan and body-parser. Why do you think morgan is only being run when the application is run in development mode?
 
-* **Your Answer:**
+* **Your Answer:**`morgan` is to be able to log information about the type of requests that are coming in. `body-parser` gives us access to req.body. Morgan is only being run in dev because we don't want all the logs in production which could slow down response time.
 
 ---
 
@@ -208,7 +212,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Try commenting out `body-parser` in your application. What happens and why?
 
-* **Your Answer:**
+* **Your Answer:** Without `body-parser` the code throws an error. The endpoint that we are requesting a POST requires the request body to be parsed.
 
 ---
 
@@ -219,31 +223,31 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
   const { generate: generateId } = require('shortid')
   ```
 
-* **Your Answer:**
+* **Your Answer:** We are importing the `shortid` package which is a unique id generator. It is being used to create a uniqueid for each response that we get in a POST request.
 
 * **Question:** What routes are currently available to you as part of this application?
 
-* **Your Answer:**
+* **Your Answer:** `/vegetables` -GET, `/vegetables` -POST, and `/vegetables/:id` -GET
 
 * **Question:** Look for `helpers.validate` in the `app.js` file. What is this and how does it work?
 
-* **Your Answer:**
+* **Your Answer:** `helpers.validate` is a middleware function that validates that the request body `name` and `price` are part of the POST request.
 
 * **Question:** Try creating a new vegetable. Then, try restarting your server. What happens to the data you posted and why?
 
-* **Your Answer:**
+* **Your Answer:** The data that I just created is gone because we did not save it to any database.
 
 * **Question:** Take a look at the last two `app.use()` methods at the end of the file. Describe how both work and what `err` is refers to.
 
-* **Your Answer:**
+* **Your Answer:** The first `app.use` is a middleware that handles request that do not meet an actual route. It returns an status code of 404 and a message that outputs the path that was requested. The second `app.use` is also an error handler that outputs the error message from the helpers.js file.
 
 * **Question:** Take a look at the `package.json` file. What is [standardjs](https://standardjs.com/) and what will it do for you?
 
-* **Your Answer:**
+* **Your Answer:** `standardjs` is a javascript code auto formatter. It can save my time cleaning out my code and keeping it consistent.
 
 #### Resources
 
 - [Postman](https://www.getpostman.com)
 - [Express](https://expressjs.com/)
-- [morgan](https://www.npmjs.com/package/morgan) 
+- [morgan](https://www.npmjs.com/package/morgan)
 - [body-parser](https://www.npmjs.com/package/body-parser)
