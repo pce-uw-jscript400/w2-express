@@ -174,7 +174,11 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Your Answer:**
 
----
+## `req.params` is a rout parameters object.
+
+## req.params.name needs to be chang to req.params.username.
+
+## Basically whatever is after ':' need to be match with the req.params.\_\_\_.
 
 - [ ] Create three new routes as follows, testing each one as you go:
 
@@ -206,7 +210,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Your Answer:**
 
----
+##In middleware we can check all incoming request methods and also execute any code. but in route we are just looking for a specific url.
 
 - [ ] Take a moment to read through the following code that is already in `app.js`. If you need, take a look at the [morgan](https://www.npmjs.com/package/morgan) and [body-parser](https://www.npmjs.com/package/body-parser) packages on NPM:
   ```js
@@ -220,7 +224,9 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Your Answer:**
 
----
+## we use morgan to log servers responses on the console for development purpose and there is no need to show thoes logs to the user. also in the case of saving to the file if there are lots of request file can get really big.
+
+## body-parser gets access to req.body. In body we can add some more information to our request and body-parser gives us easy access to it.
 
 - [ ] Update one of the `POST` routes you've created by adding the following code before the response is set. Then, try sending a request body using Postman to that route.
   ```js
@@ -231,7 +237,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Your Answer:**
 
----
+## req.body is undefined. because now we don't have access to the body.
 
 - [ ] Visit the [Exercise: Express](https://github.com/pce-uw-jscript400/exercise-express) repository on GitHub. Follow the setup instructions and open the code in a code editor. Then, answer the following questions:
 
