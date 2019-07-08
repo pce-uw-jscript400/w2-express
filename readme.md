@@ -237,7 +237,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Your Answer:**
 
-## req.body is undefined. because now we don't have access to the body.
+## req.body is undefined. because now we don't have access to the body and if we want to have access to the body without using body-parser we need to write our own parser which requires some coding.
 
 - [ ] Visit the [Exercise: Express](https://github.com/pce-uw-jscript400/exercise-express) repository on GitHub. Follow the setup instructions and open the code in a code editor. Then, answer the following questions:
 
@@ -253,21 +253,31 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Your Answer:**
 
-* **Question:** Look for `helpers.validate` in the `app.js` file. What is this and how does it work?
+## GET /vegetables
 
-* **Your Answer:**
+## GET /vegetables/:id
 
-* **Question:** Try creating a new vegetable. Then, try restarting your server. What happens to the data you posted and why?
+## POST /vegetables
 
-* **Your Answer:**
+- **Question:** Look for `helpers.validate` in the `app.js` file. What is this and how does it work?
 
-* **Question:** Take a look at the last two `app.use()` methods at the end of the file. Describe how both work and what `err` is refers to.
+- **Your Answer:**
 
-* **Your Answer:**
+## it is a callback method which checks the validity of the input by checking status code, required keys and also checks if it has unnecessary keys.
 
-* **Question:** Take a look at the `package.json` file. What is [standardjs](https://standardjs.com/) and what will it do for you?
+- **Question:** Try creating a new vegetable. Then, try restarting your server. What happens to the data you posted and why?
 
-* **Your Answer:**
+- **Your Answer:**
+
+##
+
+- **Question:** Take a look at the last two `app.use()` methods at the end of the file. Describe how both work and what `err` is refers to.
+
+- **Your Answer:**
+
+- **Question:** Take a look at the `package.json` file. What is [standardjs](https://standardjs.com/) and what will it do for you?
+
+- **Your Answer:**
 
 #### Resources
 
