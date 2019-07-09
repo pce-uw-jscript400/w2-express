@@ -29,7 +29,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 * **Question:** Why do you think `node_modules/` is included in there?
 
 * **Your Answer:**
-
+to keep the mass of modules from being uploaded to github
 ---
 
 - [ ] Take a look at the `package.json` file.
@@ -109,35 +109,38 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 * **Question:** What type of thing is `app` and what is its purpose?
 
 * **Your Answer:**
-
+a reference to the Express module, where all of our good server-running-stuff lives
 * **Question:** What type of thing is `app.get()` and what is its purpose?
 
 * **Your Answer:**
-
+A function of express that tells Express what data to send back to the requesting client
 * **Question:** What type of thing is `/` and what is its purpose?
 
 * **Your Answer:**
+It's a sign that has fallen over, here I can fix it: `|`
+It's the path of the url being passed to the server.
 
 * **Question:** What type of thing is `req` and what does it represent in the callback?
 
 * **Your Answer:**
-
+It's an object whose properties describe the request being sent from the client.
 * **Question:** What type of thing is `res` and what does it represent in the callback?
 
 * **Your Answer:**
-
+res is the response being returned to the client
 * **Question:** What type of thing is `next` and what does it represent in the callback?
 
 * **Your Answer:**
+next is a function telling express what to do next after completing its current function
 
 * **Question:** Instead of a `GET` request, lets say we want to listen in for a `POST` request. What do you think you needs to change?
 
 * **Your Answer:**
-
+use app.post and receive as well as return data
 * **Question:** Right now all of our requests will return a "Status Code" of 200. Define what a status code is and research how you could change it.
 
 * **Your Answer:**
-
+A stats code is number representing the success or cause of HTTP request failure. The most famous is 404. Use res.status() to change it.
 ---
 
 - [ ] Add the following route to your application; then, make a request again but this time change the URL to the following, making sure to replace `<your-name` with your acutal name: `http://localhost:5000/my/name/is/<your-name>`.
@@ -153,7 +156,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 * **Question:** What is `req.params`? What else will you need to change if you change the path to `/my/name/is/:username`?
 
 * **Your Answer:**
-
+    ${req.params.username}
 ---
 
 - [ ] Create three new routes as follows, testing each one as you go:
@@ -184,7 +187,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 * **Question:** The above can be described as middleware. Describe what middleware is in your own words and how it differs from building a route.
 
 * **Your Answer:**
-
+Middleware runs independantly from a route, as long as it's called before the called route.
 ---
 
 - [ ] Take a moment to read through the following code that is already in `app.js`. If you need, take a look at the [morgan](https://www.npmjs.com/package/morgan) and [body-parser](https://www.npmjs.com/package/body-parser) packages on NPM:
@@ -198,7 +201,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 * **Question:** Describe the purpose of both morgan and body-parser. Why do you think morgan is only being run when the application is run in development mode?
 
 * **Your Answer:**
-
+The verbose feedback and overhead is unneccissary in production code
 ---
 
 - [ ] Update one of the `POST` routes you've created by adding the following code before the response is set. Then, try sending a request body using Postman to that route.
@@ -209,7 +212,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 * **Question:** Try commenting out `body-parser` in your application. What happens and why?
 
 * **Your Answer:**
-
+Giant error. body-parser gives access to req.body
 ---
 
 - [ ] Visit the [Exercise: Express](https://github.com/pce-uw-jscript400/exercise-express) repository on GitHub. Follow the setup instructions and open the code in a code editor. Then, answer the following questions:
@@ -220,15 +223,16 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
   ```
 
 * **Your Answer:**
-
+shortId generates small unique IDs, similar to tinyURL - the generateId function is being instanitated with it.
 * **Question:** What routes are currently available to you as part of this application?
 
 * **Your Answer:**
+/vegetables
 
 * **Question:** Look for `helpers.validate` in the `app.js` file. What is this and how does it work?
-
+ 
 * **Your Answer:**
-
+checks input vs parameters, returns appropriate error if any are missing/extra
 * **Question:** Try creating a new vegetable. Then, try restarting your server. What happens to the data you posted and why?
 
 * **Your Answer:**
@@ -236,11 +240,13 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 * **Question:** Take a look at the last two `app.use()` methods at the end of the file. Describe how both work and what `err` is refers to.
 
 * **Your Answer:**
+The first app.use() triggers if no other route does, generates an error message, then uses the next() function call the next app.use(), which returns that error to the user.
+
 
 * **Question:** Take a look at the `package.json` file. What is [standardjs](https://standardjs.com/) and what will it do for you?
 
 * **Your Answer:**
-
+standarjs doesn't appear in my copy of the json file, but according to the link it's a linter and formatter (corrects sloppily formatted coding)
 #### Resources
 
 - [Postman](https://www.getpostman.com)
