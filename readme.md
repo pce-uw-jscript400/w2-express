@@ -28,7 +28,8 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Why do you think `node_modules/` is included in there?
 
-* **Your Answer:**
+* **Your Answer:** node_modules contains all the npm packages that we have installed to build our app.
+These pacakges need not be tracked/pushed onto git as they can be easily installed by anyone who would like to work on the project using npm install
 
 ---
 
@@ -36,15 +37,20 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Take a minute to look through the installed packages and describe the purpose of each one. Don't just copy and paste from something online!
 
-* **Your Answer:**
+* **Your Answer:**  nodemon : It automatically restarts our node application whenever any file or directory changes are detected. This is particularly useful in our case as we dont want to stop and restart our server every time we make a code change
 
+express : Express is a web framework for node. It provides a bunch of wrappers for HTTP utility methods so that building our API's is easier without us having to deal with the nitty gritty details.
+
+body-parser : It is a body parsing middleware. This basically intercepts the user request and parsers the body and process the data and hands it to the server request handler in a pretty form. This module provides different format body parsers such as JSON, Raw, Text and URL encoded body parser
+
+morgan : this is another middleware that is used for logging purposes. This provides details about the timing metrics etc
 ---
 
 - [ ] Try going to [http://localhost:5000/notfound](http://localhost:5000/notfound)
 
 * **Question:** Why do we get a response when we go to `/` but not `/notfound`?
 
-* **Your Answer:**
+* **Your Answer:** When we go to localhost:/5000/notfound, we are essntially making a get request to a route/endpoint we haven't specified in our server code and hence we het that error, where as we have specified the response that needs to be returned when we do a GET request to /.
 
 ---
 
@@ -56,7 +62,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What are headers? What values do you recognize?
 
-* **Your Answer:**
+* **Your Answer:** This is the HTTP reesponse headers which contain the metadata for the response. In our case it indicates the framework that is running on the server and the content type refers to the type of the body that is sent in the response and content length is the actual number of charcters that is present in the body of the response
 
 ---
 
@@ -67,7 +73,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Where can you find this `console.log()` statement? How can you change the headers that are sent in Postman?
 
-* **Your Answer:**
+* **Your Answer:** This console.log statement is logged to the terminal. If you look at the headers tab in the same level as the request/GET we can edit the headers that are sent by POSTMAN
 
 ---
 
@@ -78,7 +84,10 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What are query parameters? Try going to a couple of your favorite websites and paste an example of query parameters being used.
 
-* **Your Answer:**
+* **Your Answer:** Anything that follows the ? in the GET request is a query param. After the question mark is a key value pair and if you want to send in more key value pairs you combine them using &
+
+Searching for javascript on uw website: https://www.washington.edu/search/?q=javascript
+
 
 ---
 
@@ -92,7 +101,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** When does `app.use()` get called?
 
-* **Your Answer:**
+* **Your Answer:** Everytime a request is made
 
 ---
 
@@ -108,35 +117,35 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What type of thing is `app` and what is its purpose?
 
-* **Your Answer:**
+* **Your Answer:** app is an object with mutliple methods attached to it. Its purpose is to set up and run an express server
 
 * **Question:** What type of thing is `app.get()` and what is its purpose?
 
-* **Your Answer:**
+* **Your Answer:** app.get() is a function and it is used to process all the get requests that are received. The first param to the get method is the path/route and the get method and if the route matches then it excutes the function defined in the second param which typically deals with request and based on the request sends an appropriate response
 
 * **Question:** What type of thing is `/` and what is its purpose?
 
-* **Your Answer:**
+* **Your Answer:** / represents a path and it is used to route the get request to the appropriately
 
 * **Question:** What type of thing is `req` and what does it represent in the callback?
 
-* **Your Answer:**
+* **Your Answer:** req is the request object
 
 * **Question:** What type of thing is `res` and what does it represent in the callback?
 
-* **Your Answer:**
+* **Your Answer:** res is the response object
 
 * **Question:** What type of thing is `next` and what does it represent in the callback?
 
-* **Your Answer:**
+* **Your Answer:** next is a function and it represents the next available matching route that the server has to execute after executing the current method
 
 * **Question:** Instead of a `GET` request, lets say we want to listen in for a `POST` request. What do you think you needs to change?
 
-* **Your Answer:**
+* **Your Answer:** instead of app.get() we need to use app.post()
 
 * **Question:** Right now all of our requests will return a "Status Code" of 200. Define what a status code is and research how you could change it.
 
-* **Your Answer:**
+* **Your Answer:** status code here refers to http status codes. Status codes refers to convey back to the client in brief what happened with the request, just a high level context. we can add a .status() method to change the status that needs to be returned
 
 ---
 
@@ -152,7 +161,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What is `req.params`? What else will you need to change if you change the path to `/my/name/is/:username`?
 
-* **Your Answer:**
+* **Your Answer:** req.params is an object that represents route params. Route params are defined within a URL. If we change name to username then the message should log out req.params.username
 
 ---
 
@@ -183,7 +192,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** The above can be described as middleware. Describe what middleware is in your own words and how it differs from building a route.
 
-* **Your Answer:**
+* **Your Answer:** middleware is something that acts as a wrapper and exposes many methods within app for easy access. Without middleware we can still build the entire server but just that the code will tend to be overly verbose. middleware acts as a translation unit and makes life easier by providing useful wrappers
 
 ---
 
@@ -197,7 +206,9 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Describe the purpose of both morgan and body-parser. Why do you think morgan is only being run when the application is run in development mode?
 
-* **Your Answer:**
+* **Your Answer:** The logs outputted by morgan are mostly useful for the developer only during the development phase. If it is enabled on a production server which gets a lot of traffic, these logs can actually bloat up pretty quickly and if they are being stored they can get really annoying and take up a lot of space
+
+body parser gets us access to req.body and we can specify the format in which we expect request body to be in
 
 ---
 
@@ -208,7 +219,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Try commenting out `body-parser` in your application. What happens and why?
 
-* **Your Answer:**
+* **Your Answer:** we get an error because without the body-parser we dont have access to req.body, infact req.body is logged as undefined, because in any standard request the body is sent as a stream and without the middleware we need to do a lot of translation ourseleves. body-parsers eliminates the need for that and provides us a simple and easy access to req.body
 
 ---
 
@@ -219,27 +230,28 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
   const { generate: generateId } = require('shortid')
   ```
 
-* **Your Answer:**
+* **Your Answer:** short id is a unique id generator which is used to genetrate id's for each of the veggies and fruits that are created via post. This helps to uniquely identify each of the veggie and fruits and no two id's will be the same
 
 * **Question:** What routes are currently available to you as part of this application?
 
-* **Your Answer:**
+* **Your Answer:** get /vegetables,  get /vegetables/:id, post /vegetables
 
 * **Question:** Look for `helpers.validate` in the `app.js` file. What is this and how does it work?
 
-* **Your Answer:**
+* **Your Answer:** This basically helps us to validat the post request. The body of the post should have
+a name and price as key's and thier corresponding value pairs are also expected to be passed as a part of request body and helpers.validate helps validate this
 
 * **Question:** Try creating a new vegetable. Then, try restarting your server. What happens to the data you posted and why?
 
-* **Your Answer:**
+* **Your Answer:** The data is not persisted as it is only in memory and not stored to the database. So once we restart the server that data is gone
 
 * **Question:** Take a look at the last two `app.use()` methods at the end of the file. Describe how both work and what `err` is refers to.
 
-* **Your Answer:**
+* **Your Answer:** if a particular path was not found for any of the req methods like get post put etc ,we log out the error messages using these app.use statements
 
 * **Question:** Take a look at the `package.json` file. What is [standardjs](https://standardjs.com/) and what will it do for you?
 
-* **Your Answer:**
+* **Your Answer:** Helps provide enforce consitent styling for the entire project. 
 
 #### Resources
 
