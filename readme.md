@@ -78,7 +78,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What are query parameters? Try going to a couple of your favorite websites and paste an example of query parameters being used.
 
-* **Your Answer:** Query parameters are key:value pairs entered into the URL. 
+* **Your Answer:** Query parameters are key:value pairs entered into the URL. The Starbucks PWA uses query parameters on sign in to indicate what URL you were referred to and should therefore be returned to. ex: `https://app.starbucks.com/account/signin?ReturnUrl=https%3A%2F%2Fapp.starbucks.com%2F`
 
 ---
 
@@ -92,7 +92,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** When does `app.use()` get called?
 
-* **Your Answer:** When a request is made.
+* **Your Answer:** When a request is made and in the order of operations in the script. If it comes after a requested route, the code would not fire. 
 
 ---
 
@@ -108,7 +108,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What type of thing is `app` and what is its purpose?
 
-* **Your Answer:** App is a function and its various attached methods. 
+* **Your Answer:** App is a function and its various attached methods referencing the Express module. 
 
 * **Question:** What type of thing is `app.get()` and what is its purpose?
 
@@ -128,7 +128,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What type of thing is `next` and what does it represent in the callback?
 
-* **Your Answer:** it is a function that informs the application to continue running the application.
+* **Your Answer:** it is a function that informs the application to continue running the application to find the next available matching route.
 
 * **Question:** Instead of a `GET` request, lets say we want to listen in for a `POST` request. What do you think you needs to change?
 
@@ -219,27 +219,27 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
   const { generate: generateId } = require('shortid')
   ```
 
-* **Your Answer:**
+* **Your Answer:** This line imports the shortid module and more specifically the generate() method as the variable generateId. This package can be used to quickly generate random unique IDs.
 
 * **Question:** What routes are currently available to you as part of this application?
 
-* **Your Answer:**
+* **Your Answer:** GET and POST to `/vegetables` and a GET route for `/vegetables/:id`
 
 * **Question:** Look for `helpers.validate` in the `app.js` file. What is this and how does it work?
 
-* **Your Answer:**
+* **Your Answer:** It is a middleware function that is checking the request object for the two required valid object keys, no extras. 
 
 * **Question:** Try creating a new vegetable. Then, try restarting your server. What happens to the data you posted and why?
 
-* **Your Answer:**
+* **Your Answer:** The posted data no longer exists. It is gone because it was only posted to the local memory. Once that is cleared on restart, it it lost forever.
 
 * **Question:** Take a look at the last two `app.use()` methods at the end of the file. Describe how both work and what `err` is refers to.
 
-* **Your Answer:**
+* **Your Answer:** The first of the two is essentially middleware to handle undefined routes. in the response object, it sets the status as 404 and generates a message that the request could not be made. The second `app.use()` is the error handler for the unhandled route.
 
 * **Question:** Take a look at the `package.json` file. What is [standardjs](https://standardjs.com/) and what will it do for you?
 
-* **Your Answer:**
+* **Your Answer:** Standardjs is a javascript linter that will check your code for errors and formatting issues. 
 
 #### Resources
 
