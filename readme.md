@@ -28,7 +28,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Why do you think `node_modules/` is included in there?
 
-* **Your Answer: they are common files that are not tracked or dont need to be tracked
+* **Your Answer: they are common files that are not tracked or dont need to be tracked and change often
 
 ---
 
@@ -36,7 +36,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Take a minute to look through the installed packages and describe the purpose of each one. Don't just copy and paste from something online!
 
-* **Your Answer: test and devDependencies - are packages that are not needed after deployment nad are not pushed to production
+* **Your Answer: test and devDependencies - are packages that are not needed after deployment and are not pushed to production
 express minimized 
 
 ---
@@ -68,7 +68,7 @@ express minimized
 
 * **Question:** Where can you find this `console.log()` statement? How can you change the headers that are sent in Postman?
 
-* **Your Answer: in the terminal
+* **Your Answer: in the terminal (console.log)
 ---
 
 - [ ] Add the following line **above** the `res.json()` line in your `app.js` file; then, make a request again but this time change the URL to the following: `http://localhost:5000?course=javascript`
@@ -183,7 +183,7 @@ express minimized
 
 * **Question:** The above can be described as middleware. Describe what middleware is in your own words and how it differs from building a route.
 
-* **Your Answer:**
+* **Your Answer: Middleware can be the gate that params go through that screen for access or redirect as needed
 
 ---
 
@@ -197,7 +197,7 @@ express minimized
 
 * **Question:** Describe the purpose of both morgan and body-parser. Why do you think morgan is only being run when the application is run in development mode?
 
-* **Your Answer:**
+* **Your Answer:Morgan is a request logger, body-parser parses your request and converts it into a format from which you can easily extract relevant information that you may need
 
 ---
 
@@ -208,7 +208,7 @@ express minimized
 
 * **Question:** Try commenting out `body-parser` in your application. What happens and why?
 
-* **Your Answer:**
+* **Your Answer: I must have done somethign wrong, I did not see any changes
 
 ---
 
@@ -219,27 +219,27 @@ express minimized
   const { generate: generateId } = require('shortid')
   ```
 
-* **Your Answer:**
+* **Your Answer:The line adds shortid package as part of the app.  The package itself creates short short non-sequential url-friendly unique ids that cam be used for shortening urls and ids
 
 * **Question:** What routes are currently available to you as part of this application?
 
-* **Your Answer:**
+* **Your Answer: /fruits /vegetables
 
 * **Question:** Look for `helpers.validate` in the `app.js` file. What is this and how does it work?
 
-* **Your Answer:**
+* **Your Answer:it validates that the required keys are present and returns a bad request if they are not.  By executing helpers.js that runs a validation script
 
 * **Question:** Try creating a new vegetable. Then, try restarting your server. What happens to the data you posted and why?
 
-* **Your Answer:**
+* **Your Answer: it disappears, because there is not a system (file write, or db, etc) to persist the data
 
 * **Question:** Take a look at the last two `app.use()` methods at the end of the file. Describe how both work and what `err` is refers to.
 
-* **Your Answer:**
+* **Your Answer:The first sets a not found (404) message if the inputed request cannot be found, the second is the response to the request
 
 * **Question:** Take a look at the `package.json` file. What is [standardjs](https://standardjs.com/) and what will it do for you?
 
-* **Your Answer:**
+* **Your Answer:it is a linter, style guide and formatter.  It will ensure your code meets the prescribed standards giving consistent code across several developer, this reduces time trying to figure out what the code is supposed to do and presents a professional standard
 
 #### Resources
 
