@@ -28,7 +28,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Why do you think `node_modules/` is included in there?
 
-* **Your Answer:**
+* **Your Answer:** so every time a node module updates you don't end up checking in a million changes. Anyone running you app can just do an npm install and it will update.
 
 ---
 
@@ -36,7 +36,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Take a minute to look through the installed packages and describe the purpose of each one. Don't just copy and paste from something online!
 
-* **Your Answer:**
+* **Your Answer:** express is a framework that will help us create a server, devDependencies are things we'll only need in development, nodemon will help us restart node when file changes are noticed so it will 'watch' our code. 
 
 ---
 
@@ -44,7 +44,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Why do we get a response when we go to `/` but not `/notfound`?
 
-* **Your Answer:**
+* **Your Answer:** We've only defined what happens at that particular route.
 
 ---
 
@@ -56,7 +56,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What are headers? What values do you recognize?
 
-* **Your Answer:**
+* **Your Answer:** Headers are the metadata that the server sends with a every response. Content type is the json we've returned and it's encoding, x-powered by expresss describes the framework we're using.
 
 ---
 
@@ -67,7 +67,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Where can you find this `console.log()` statement? How can you change the headers that are sent in Postman?
 
-* **Your Answer:**
+* **Your Answer:** terminal. 
 
 ---
 
@@ -78,7 +78,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What are query parameters? Try going to a couple of your favorite websites and paste an example of query parameters being used.
 
-* **Your Answer:**
+* **Your Answer:**converts path parameters to javascript. syntax ?thing=parameters 
 
 ---
 
@@ -92,7 +92,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** When does `app.use()` get called?
 
-* **Your Answer:**
+* **Your Answer:** whenever a request is made
 
 ---
 
@@ -108,39 +108,39 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What type of thing is `app` and what is its purpose?
 
-* **Your Answer:**
+* **Your Answer:** App is a function/object with many methods attached to it.
 
 * **Question:** What type of thing is `app.get()` and what is its purpose?
 
-* **Your Answer:**
+* **Your Answer:** finds a route for the get request
 
 * **Question:** What type of thing is `/` and what is its purpose?
 
-* **Your Answer:**
+* **Your Answer:** string / is a route and it represents a url
 
 * **Question:** What type of thing is `req` and what does it represent in the callback?
 
-* **Your Answer:**
+* **Your Answer:**  req is a request and its when you ask the server for something
 
 * **Question:** What type of thing is `res` and what does it represent in the callback?
 
-* **Your Answer:**
+* **Your Answer:** res is the response object and the callback defines how the server is going to reply
 
 * **Question:** What type of thing is `next` and what does it represent in the callback?
 
-* **Your Answer:**
+* **Your Answer:** next is a method and tells the code to continue executing next available matching route
 
 * **Question:** Instead of a `GET` request, lets say we want to listen in for a `POST` request. What do you think you needs to change?
 
-* **Your Answer:**
+* **Your Answer:** post will create something on the server. just change get -> post
 
 * **Question:** Right now all of our requests will return a "Status Code" of 200. Define what a status code is and research how you could change it.
 
-* **Your Answer:**
+* **Your Answer:** status code tells you the health of the relationship with the server
 
 ---
 
-- [ ] Add the following route to your application; then, make a request again but this time change the URL to the following, making sure to replace `<your-name` with your acutal name: `http://localhost:5000/my/name/is/<your-name>`.
+- [ ] Add the following route to your application; then, make a request again but this time change the URL to the following, making sure to replace `<your-name` with your actual name: `http://localhost:5000/my/name/is/<your-name>`.
   ```js
   app.get('/my/name/is/:name', (req, res, next) => {
     console.log(req.params)
@@ -152,7 +152,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What is `req.params`? What else will you need to change if you change the path to `/my/name/is/:username`?
 
-* **Your Answer:**
+* **Your Answer:** route parameters, different than query params, they are defined inside 
 
 ---
 
