@@ -28,7 +28,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Why do you think `node_modules/` is included in there?
 
-* **Your Answer:**
+* **Your Answer: they are common files that are not tracked or dont need to be tracked and change often
 
 ---
 
@@ -36,7 +36,8 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Take a minute to look through the installed packages and describe the purpose of each one. Don't just copy and paste from something online!
 
-* **Your Answer:**
+* **Your Answer: test and devDependencies - are packages that are not needed after deployment and are not pushed to production
+express minimized 
 
 ---
 
@@ -44,7 +45,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Why do we get a response when we go to `/` but not `/notfound`?
 
-* **Your Answer:**
+* **Your Answer: we havent set a route
 
 ---
 
@@ -56,7 +57,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What are headers? What values do you recognize?
 
-* **Your Answer:**
+* **Your Answer:metadata about the request such as the time, length, connection type, server type, possibley cookies, content type, 
 
 ---
 
@@ -67,8 +68,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Where can you find this `console.log()` statement? How can you change the headers that are sent in Postman?
 
-* **Your Answer:**
-
+* **Your Answer: in the terminal (console.log)
 ---
 
 - [ ] Add the following line **above** the `res.json()` line in your `app.js` file; then, make a request again but this time change the URL to the following: `http://localhost:5000?course=javascript`
@@ -78,7 +78,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What are query parameters? Try going to a couple of your favorite websites and paste an example of query parameters being used.
 
-* **Your Answer:**
+* **Your Answer:anything after ? you have a key value pair.  for about course is the key and javascript is the value
 
 ---
 
@@ -108,35 +108,35 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What type of thing is `app` and what is its purpose?
 
-* **Your Answer:**
+* **Your Answer: an instance of an express server router controller to direct routes
 
 * **Question:** What type of thing is `app.get()` and what is its purpose?
 
-* **Your Answer:**
+* **Your Answer:a path director, if the path matches it directs to an action
 
 * **Question:** What type of thing is `/` and what is its purpose?
 
-* **Your Answer:**
+* **Your Answer: a path heirchical notation
 
 * **Question:** What type of thing is `req` and what does it represent in the callback?
 
-* **Your Answer:**
+* **Your Answer:request - information requested maybe parameters
 
 * **Question:** What type of thing is `res` and what does it represent in the callback?
 
-* **Your Answer:**
+* **Your Answer:response, what the server (database) retruns from a request
 
 * **Question:** What type of thing is `next` and what does it represent in the callback?
 
-* **Your Answer:**
+* **Your Answer:it is a function that keeps the stream flowing down, if the first app does not match it goes to the next app path
 
 * **Question:** Instead of a `GET` request, lets say we want to listen in for a `POST` request. What do you think you needs to change?
 
-* **Your Answer:**
+* **Your Answer: it is from the client telling the server to create, update or delete an object
 
 * **Question:** Right now all of our requests will return a "Status Code" of 200. Define what a status code is and research how you could change it.
 
-* **Your Answer:**
+* **Your Answer:satus code indicate the success or failure of a request or return status - 200 is success, there are several like not found, or unauthorized, they let the client know why or where a request failed or was successful or redirected. Add a.status method
 
 ---
 
@@ -152,7 +152,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What is `req.params`? What else will you need to change if you change the path to `/my/name/is/:username`?
 
-* **Your Answer:**
+* **Your Answer:routing params, change .name to .username
 
 ---
 
@@ -183,7 +183,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** The above can be described as middleware. Describe what middleware is in your own words and how it differs from building a route.
 
-* **Your Answer:**
+* **Your Answer: Middleware can be the gate that params go through that screen for access or redirect as needed
 
 ---
 
@@ -197,7 +197,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Describe the purpose of both morgan and body-parser. Why do you think morgan is only being run when the application is run in development mode?
 
-* **Your Answer:**
+* **Your Answer:Morgan is a request logger, body-parser parses your request and converts it into a format from which you can easily extract relevant information that you may need
 
 ---
 
@@ -208,7 +208,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Try commenting out `body-parser` in your application. What happens and why?
 
-* **Your Answer:**
+* **Your Answer: I must have done somethign wrong, I did not see any changes
 
 ---
 
@@ -219,27 +219,27 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
   const { generate: generateId } = require('shortid')
   ```
 
-* **Your Answer:**
+* **Your Answer:The line adds shortid package as part of the app.  The package itself creates short short non-sequential url-friendly unique ids that cam be used for shortening urls and ids
 
 * **Question:** What routes are currently available to you as part of this application?
 
-* **Your Answer:**
+* **Your Answer: /fruits /vegetables
 
 * **Question:** Look for `helpers.validate` in the `app.js` file. What is this and how does it work?
 
-* **Your Answer:**
+* **Your Answer:it validates that the required keys are present and returns a bad request if they are not.  By executing helpers.js that runs a validation script
 
 * **Question:** Try creating a new vegetable. Then, try restarting your server. What happens to the data you posted and why?
 
-* **Your Answer:**
+* **Your Answer: it disappears, because there is not a system (file write, or db, etc) to persist the data
 
 * **Question:** Take a look at the last two `app.use()` methods at the end of the file. Describe how both work and what `err` is refers to.
 
-* **Your Answer:**
+* **Your Answer:The first sets a not found (404) message if the inputed request cannot be found, the second is the response to the request
 
 * **Question:** Take a look at the `package.json` file. What is [standardjs](https://standardjs.com/) and what will it do for you?
 
-* **Your Answer:**
+* **Your Answer:it is a linter, style guide and formatter.  It will ensure your code meets the prescribed standards giving consistent code across several developer, this reduces time trying to figure out what the code is supposed to do and presents a professional standard
 
 #### Resources
 
