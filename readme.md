@@ -210,7 +210,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Your Answer:**
 
-##In middleware we can check all incoming request methods and also execute any code. but in route we are just looking for a specific url.
+## In middleware we can check all incoming request methods and also execute any code. but in route we are just looking for a specific url.
 
 - [ ] Take a moment to read through the following code that is already in `app.js`. If you need, take a look at the [morgan](https://www.npmjs.com/package/morgan) and [body-parser](https://www.npmjs.com/package/body-parser) packages on NPM:
   ```js
@@ -239,7 +239,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 ## req.body is undefined. because now we don't have access to the body and if we want to have access to the body without using body-parser we need to write our own parser which requires some coding.
 
-- [ ] Visit the [Exercise: Express](https://github.com/pce-uw-jscript400/exercise-express) repository on GitHub. Follow the setup instructions and open the code in a code editor. Then, answer the following questions:
+- [ ] Visit the [Exercise: Express](https://github.com/pce-uw-jscnpmript400/exercise-express) repository on GitHub. Follow the setup instructions and open the code in a code editor. Then, answer the following questions:
 
 * **Question:** Describe what is happening on the following line. What is the [shortid](https://www.npmjs.com/package/shortid) package and what is it being used for?
 
@@ -249,9 +249,11 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Your Answer:**
 
-* **Question:** What routes are currently available to you as part of this application?
+## ShortId creates short non-sequential url-friendly unique ids.
 
-* **Your Answer:**
+- **Question:** What routes are currently available to you as part of this application?
+
+- **Your Answer:**
 
 ## GET /vegetables
 
@@ -263,21 +265,25 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 - **Your Answer:**
 
-## it is a callback method which checks the validity of the input by checking status code, required keys and also checks if it has unnecessary keys.
+## it is a callback method which checks the validity of the input by checking status code, required keys and also checks if it has unnecessary keys or if the body is empty.
 
 - **Question:** Try creating a new vegetable. Then, try restarting your server. What happens to the data you posted and why?
 
 - **Your Answer:**
 
-##
+## it's gone because we are not saving it anywhere like a database.
 
 - **Question:** Take a look at the last two `app.use()` methods at the end of the file. Describe how both work and what `err` is refers to.
 
 - **Your Answer:**
 
+## The first one is just general app.use to informe the client that it couldn't find the route or the method requsted by the client. Second one coms to play just when we have an error re-directed by helpers.validate middleware using the next(err) function.
+
 - **Question:** Take a look at the `package.json` file. What is [standardjs](https://standardjs.com/) and what will it do for you?
 
 - **Your Answer:**
+
+## Automatically formats the code and lets us know our code doesn't follow standard js style.
 
 #### Resources
 
