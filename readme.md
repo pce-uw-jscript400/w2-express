@@ -28,7 +28,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Why do you think `node_modules/` is included in there?
 
-* **Your Answer:** You don't need to track changes for node modules. Node packages are readily available via NPM and therefore are not required to be packaged with your code. Running `npm install` will download and install all required dependencies for your project. node_modules can very quickly become bloated and storage resource intensive, making it more effective to install those dependencies separately.
+* **Your Answer:** You don't need to track changes for node modules as they _shouldn't_ be changing. Node packages are readily available via NPM and therefore are not required to be packaged with your code. Running `npm install` will download and install all required dependencies for your project. Also, the contents of node_modules are generally only necessary for the development and build portion of the application development, not required as as assets for the production codebase. Finally, the node_modules folder can very quickly become bloated and storage resource intensive, making it more effective to install those dependencies separately.
 
 ---
 
@@ -56,7 +56,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What are headers? What values do you recognize?
 
-* **Your Answer:** Headers are like meta data information about the request. I recognize Content-Type, content-length and date as being fairly standard params. 
+* **Your Answer:** Headers are like meta data information about the request. I recognize Content-Type, content-length and date as being fairly standard parameters. 
 
 ---
 
@@ -92,7 +92,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** When does `app.use()` get called?
 
-* **Your Answer:** When a request is made and in the order of operations in the script. If it comes after a requested route, the code would not fire. 
+* **Your Answer:** When a request is made and in the order of operations in the script. If it comes after a matching requested route, the code would not fire. 
 
 ---
 
@@ -219,7 +219,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
   const { generate: generateId } = require('shortid')
   ```
 
-* **Your Answer:** This line imports the shortid module and more specifically the generate() method as the variable generateId. This package can be used to quickly generate random unique IDs.
+* **Your Answer:** This line imports the shortid module and more specifically the generate() method as the named function  generateId. This package can be used to quickly generate random unique IDs.
 
 * **Question:** What routes are currently available to you as part of this application?
 
