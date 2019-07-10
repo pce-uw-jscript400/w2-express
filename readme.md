@@ -28,7 +28,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Why do you think `node_modules/` is included in there?
 
-* **Your Answer:**
+* **Your Answer:**  They are code that is not maintained by you, and is easily reinstalled wherever by npm.
 
 ---
 
@@ -36,7 +36,11 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Take a minute to look through the installed packages and describe the purpose of each one. Don't just copy and paste from something online!
 
-* **Your Answer:**
+* **Your Answer:**  
+**  express is a light weight app server.
+**  morgan is  a middleware logging framework.
+**  body-parser looks in request body for things matching the specified content type.
+**  nodemon restarts express whenever changes are made to the code.
 
 ---
 
@@ -44,7 +48,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Why do we get a response when we go to `/` but not `/notfound`?
 
-* **Your Answer:**
+* **Your Answer:**  We haven't specified a path for that endpoint.
 
 ---
 
@@ -56,7 +60,13 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What are headers? What values do you recognize?
 
-* **Your Answer:**
+* **Your Answer:** Metadata about the response
+X-Powered-By →Express  (name of app server)
+Content-Type →application/json; charset=utf-8  (means that the response is in JSON UTF-format)
+Content-Length →29 (can be useful if the response is buffered, and you want to know the whole length)
+ETag →W/"1d-2xgNbPXoy9ff2kjMz+3OfvVkytU"  (A unique identifier of the transaction)
+Date →Tue, 09 Jul 2019 05:25:12 GMT  (the date)
+Connection →keep-alive  (keep-alive eliminates the overhead of creating a new connection with subsequent requests, improves performance)
 
 ---
 
@@ -67,7 +77,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Where can you find this `console.log()` statement? How can you change the headers that are sent in Postman?
 
-* **Your Answer:**
+* **Your Answer:**  The output is in the terminal where I started Express.  I can set headers in the top half of Postman as key-value pairs.
 
 ---
 
@@ -78,8 +88,9 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What are query parameters? Try going to a couple of your favorite websites and paste an example of query parameters being used.
 
-* **Your Answer:**
-
+* **Your Answer:**  The part of a url begining with a question mark, followed by key-value pairs separated by ampersands
+https://en.wikipedia.org/w/index.php?title=Query_string&action=history
+https://twitter.com/search?q=soccer&src=typd
 ---
 
 - [ ] Before all of your routes, add the following:
@@ -92,7 +103,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** When does `app.use()` get called?
 
-* **Your Answer:**
+* **Your Answer:**  At the beginning of building the response, if the request matches the route (it always does in this example)
 
 ---
 
@@ -106,37 +117,37 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
   })
   ```
 
-* **Question:** What type of thing is `app` and what is its purpose?
+* **Question:** What type of thing is `app` and what is its purpose?  
 
-* **Your Answer:**
+* **Your Answer:**  app is an instance of Express.  It receives and responds to HTTP requests.
 
 * **Question:** What type of thing is `app.get()` and what is its purpose?
 
-* **Your Answer:**
+* **Your Answer:**  It is a function that is invoked when a GET request is recieved that matches the route.
 
 * **Question:** What type of thing is `/` and what is its purpose?
 
-* **Your Answer:**
+* **Your Answer:**  / is a paramater that corresponds to the root path.
 
 * **Question:** What type of thing is `req` and what does it represent in the callback?
 
-* **Your Answer:**
+* **Your Answer:**  req is an object containing details about the HTTP request.
 
 * **Question:** What type of thing is `res` and what does it represent in the callback?
 
-* **Your Answer:**
+* **Your Answer:**  res is the response object that you build to respond to a HTTP request.
 
 * **Question:** What type of thing is `next` and what does it represent in the callback?
 
-* **Your Answer:**
+* **Your Answer:**  next is a function that is called to find the next matching route.
 
 * **Question:** Instead of a `GET` request, lets say we want to listen in for a `POST` request. What do you think you needs to change?
 
-* **Your Answer:**
+* **Your Answer:**  app.post() instead of get()
 
 * **Question:** Right now all of our requests will return a "Status Code" of 200. Define what a status code is and research how you could change it.
 
-* **Your Answer:**
+* **Your Answer:**  It is a part of the response that indicates whether the call was successful and what action was taken.
 
 ---
 
@@ -152,7 +163,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What is `req.params`? What else will you need to change if you change the path to `/my/name/is/:username`?
 
-* **Your Answer:**
+* **Your Answer:** an object containing key/value pairs from the url.  You would need to change the message to req.params.username.
 
 ---
 
@@ -183,7 +194,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** The above can be described as middleware. Describe what middleware is in your own words and how it differs from building a route.
 
-* **Your Answer:**
+* **Your Answer:**  Middleware is a function that always runs if the code reaches that point. A route is only executed if the request matches the route function. 
 
 ---
 
@@ -197,7 +208,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Describe the purpose of both morgan and body-parser. Why do you think morgan is only being run when the application is run in development mode?
 
-* **Your Answer:**
+* **Your Answer:**  Morgan logs to the filesystem.  On a production (or production-like) server the best practice is to log to the console; your server infrastructure should have its own logging handler to collect logs from the server and dispose of them per policy.  A cloud server can come and go, so you don't want to store logs there.  body-parser translates requests into key-value pairs.  
 
 ---
 
@@ -208,7 +219,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Try commenting out `body-parser` in your application. What happens and why?
 
-* **Your Answer:**
+* **Your Answer:**  req.body returns undefined because we aren't parsing it anymore.
 
 ---
 
@@ -219,27 +230,27 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
   const { generate: generateId } = require('shortid')
   ```
 
-* **Your Answer:**
+* **Your Answer:**  We are pulling generate() from shortid and calling it generateId in our code.  shortid generates short, unique ids.  Perhaps lower overhead than a UUID.
 
 * **Question:** What routes are currently available to you as part of this application?
 
-* **Your Answer:**
+* **Your Answer:** GET `/vegetables`, GET `/vegetables/:id`, POST `/vegetables`
 
 * **Question:** Look for `helpers.validate` in the `app.js` file. What is this and how does it work?
 
-* **Your Answer:**
+* **Your Answer:**  It is a function that validates input when called.  It can make sure you have all the required fields, no extra fields, etc.  This is useful when you want to turn req.body into a persistent object.
 
 * **Question:** Try creating a new vegetable. Then, try restarting your server. What happens to the data you posted and why?
 
-* **Your Answer:**
+* **Your Answer:**  It is not there after the restart, because it is not persisted anywhere.
 
 * **Question:** Take a look at the last two `app.use()` methods at the end of the file. Describe how both work and what `err` is refers to.
 
-* **Your Answer:**
+* **Your Answer:**  The first one returns a 404 if no routes match.  The second handles errors that are thrown in the routes.
 
 * **Question:** Take a look at the `package.json` file. What is [standardjs](https://standardjs.com/) and what will it do for you?
 
-* **Your Answer:**
+* **Your Answer:**  It is a dev dependency that can show you things in your code that you technically can do but probably shouldn't, such as use == when you should use ===.  Comparable to FindBugs in Java.
 
 #### Resources
 
