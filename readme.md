@@ -236,6 +236,7 @@ checks input vs parameters, returns appropriate error if any are missing/extra
 * **Question:** Try creating a new vegetable. Then, try restarting your server. What happens to the data you posted and why?
 
 * **Your Answer:**
+the vegitable disappears, because it's not getting written to a file anywhere or otherwise persistently stored
 
 * **Question:** Take a look at the last two `app.use()` methods at the end of the file. Describe how both work and what `err` is refers to.
 
