@@ -28,7 +28,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Why do you think `node_modules/` is included in there?
 
-* **Your Answer:**
+* **Your Answer:** We don't need to track dependencies in git.
 
 ---
 
@@ -36,7 +36,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Take a minute to look through the installed packages and describe the purpose of each one. Don't just copy and paste from something online!
 
-* **Your Answer:**
+* **Your Answer:** body-parser for parsing the body of requests, for example JSON bodies. express is a framework that lets us easily listen for http requests and respond to them. morgan is used for logging.
 
 ---
 
@@ -44,7 +44,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Why do we get a response when we go to `/` but not `/notfound`?
 
-* **Your Answer:**
+* **Your Answer:** the server is listening for requests to `/` as defined by app.get(), but not for `/notfound`
 
 ---
 
@@ -56,7 +56,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What are headers? What values do you recognize?
 
-* **Your Answer:**
+* **Your Answer:** headers are meta-data about the response. It's stuff that's not in the body of the response. I recognize content-type, content-length, date, and connection.
 
 ---
 
@@ -67,7 +67,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Where can you find this `console.log()` statement? How can you change the headers that are sent in Postman?
 
-* **Your Answer:**
+* **Your Answer:** the log statement is printed to the terminal that is running the server. You can change the headers in the request Headers tab.
 
 ---
 
@@ -78,7 +78,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What are query parameters? Try going to a couple of your favorite websites and paste an example of query parameters being used.
 
-* **Your Answer:**
+* **Your Answer:** query parameters are arguments that are defined in the request URL after the `?`.
 
 ---
 
@@ -92,7 +92,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** When does `app.use()` get called?
 
-* **Your Answer:**
+* **Your Answer:** Anytime a request is received on the port the server is listening on, before handling the route
 
 ---
 
@@ -108,35 +108,35 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What type of thing is `app` and what is its purpose?
 
-* **Your Answer:**
+* **Your Answer:** It's an EventEmitter. It's an object the represents the Express application.
 
 * **Question:** What type of thing is `app.get()` and what is its purpose?
 
-* **Your Answer:**
+* **Your Answer:** app.get() is a function. It is used to configure how to handle a get request.
 
 * **Question:** What type of thing is `/` and what is its purpose?
 
-* **Your Answer:**
+* **Your Answer:** `/` is a path. It defines the pattern of the the request URL that will be handled by this route.
 
 * **Question:** What type of thing is `req` and what does it represent in the callback?
 
-* **Your Answer:**
+* **Your Answer:**  `req` is an object and represents the request details.
 
 * **Question:** What type of thing is `res` and what does it represent in the callback?
 
-* **Your Answer:**
+* **Your Answer:** `res` is an object and represents the response details.
 
 * **Question:** What type of thing is `next` and what does it represent in the callback?
 
-* **Your Answer:**
+* **Your Answer:** `next` is a function. It's the next function to be called in the chain for handling a request.
 
 * **Question:** Instead of a `GET` request, lets say we want to listen in for a `POST` request. What do you think you needs to change?
 
-* **Your Answer:**
+* **Your Answer:** change `app.get()` to `app.post()`
 
 * **Question:** Right now all of our requests will return a "Status Code" of 200. Define what a status code is and research how you could change it.
 
-* **Your Answer:**
+* **Your Answer:** a status code is returned to indicate the status of the request. 200 is 'success', for example. You can set the status code with `res.status()`.
 
 ---
 
@@ -150,9 +150,9 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
   })
   ```
 
-* **Question:** What is `req.params`? What else will you need to change if you change the path to `/my/name/is/:username`?
+* **Question:** What is `req.params`? What else will you need to change if you change the path to `/my/name/is/:username`? 
 
-* **Your Answer:**
+* **Your Answer:** `req.params` is an object holding parameters from the request URL. You'll also need to change `req.params.name` to `req.params.username`.
 
 ---
 
@@ -183,7 +183,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** The above can be described as middleware. Describe what middleware is in your own words and how it differs from building a route.
 
-* **Your Answer:**
+* **Your Answer:** Middleware has access to the request object, response object, and the next middleware function. A route defines how to handle a request using a specific request method and path. Middleware is used to transform requests before handing it off to the next middleware.
 
 ---
 
@@ -197,7 +197,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Describe the purpose of both morgan and body-parser. Why do you think morgan is only being run when the application is run in development mode?
 
-* **Your Answer:**
+* **Your Answer:** Morgan is for logging requests and not needed in a production environment. Body-parser will parse request bodys. For example, json bodies into a javascript object.
 
 ---
 
@@ -208,7 +208,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Try commenting out `body-parser` in your application. What happens and why?
 
-* **Your Answer:**
+* **Your Answer:** The request body becomes undefined since the body-parser is no longer parsing the JSON content in the request body.
 
 ---
 
@@ -219,27 +219,27 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
   const { generate: generateId } = require('shortid')
   ```
 
-* **Your Answer:**
+* **Your Answer:** The code uses destructuring syntax to assign the `shortid.generate` function to `generateId`. `shortid` is used to generate unique strings to used as identifiers. Currently, it is being use to generate a unique identier for new vegetables.
 
 * **Question:** What routes are currently available to you as part of this application?
 
-* **Your Answer:**
+* **Your Answer:** GET `/vegetables`, GET `/vegetables/:id`, POST `/vegetables`
 
 * **Question:** Look for `helpers.validate` in the `app.js` file. What is this and how does it work?
 
-* **Your Answer:**
+* **Your Answer:** It is a middleware function that validates the incoming request. It will be called when a POST request for `/vegetables` is received. If the request is invalid, it will pass an error to Express using `next(error)`. This error will be passed on to an error handling middleware function defined with 4 arguments. If the request is valid, it will call `next()` with no arguments to execute the next middleware.
 
 * **Question:** Try creating a new vegetable. Then, try restarting your server. What happens to the data you posted and why?
 
-* **Your Answer:**
+* **Your Answer:** The vegetables are only stored in memory and not persisted (for example, in a database or file). When the server is restarted anything in memory is lost.
 
 * **Question:** Take a look at the last two `app.use()` methods at the end of the file. Describe how both work and what `err` is refers to.
 
-* **Your Answer:**
+* **Your Answer:** The first one is only reached if the requert doesn't match any of the defined routes. This is considered an error and so it creates and error and passes it to Express. Express passes errors to the `app.use()` to be handled. In this case, a status code is set and the error message is sent back as a response. `err` is the error object.
 
 * **Question:** Take a look at the `package.json` file. What is [standardjs](https://standardjs.com/) and what will it do for you?
 
-* **Your Answer:**
+* **Your Answer:** standardjs automatically formats and enforces the standard javascript code style. It is a devDependency and only needed during development.
 
 #### Resources
 
