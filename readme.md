@@ -28,7 +28,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Why do you think `node_modules/` is included in there?
 
-* **Your Answer:**
+* **Your Answer:** Because it can be a lot of files to download, and is unnecessary.
 
 ---
 
@@ -36,7 +36,8 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Take a minute to look through the installed packages and describe the purpose of each one. Don't just copy and paste from something online!
 
-* **Your Answer:**
+* **Your Answer:** "body-parser" is express middleware, aka a bridge or connection between applications so data can be passed. Express is an application framework that helps connect your application to datatbases like MongoDB. Morgan is another express middleware that is used as a logging tool. You can request different log formats. This can help you log specific data that can help you troubleshoot.
+
 
 ---
 
@@ -44,7 +45,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Why do we get a response when we go to `/` but not `/notfound`?
 
-* **Your Answer:**
+* **Your Answer:** There is specified route for "/". There is no specified route for "/notfound".
 
 ---
 
@@ -56,7 +57,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What are headers? What values do you recognize?
 
-* **Your Answer:**
+* **Your Answer:** Meta data for that particular site. This may include descriptions, keywords, author info, content type, date, etc. What we have specified as the site data.
 
 ---
 
@@ -67,7 +68,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** Where can you find this `console.log()` statement? How can you change the headers that are sent in Postman?
 
-* **Your Answer:**
+* **Your Answer:** In the terminal. In postman, you can add a Header by entering a key and value in the Headers section under the url input.
 
 ---
 
@@ -78,7 +79,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What are query parameters? Try going to a couple of your favorite websites and paste an example of query parameters being used.
 
-* **Your Answer:**
+* **Your Answer:** This prints the query string values. Converting the url params to an object. The query params help us search/refine our request.
 
 ---
 
@@ -90,9 +91,9 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
   })
   ```
 
-* **Question:** When does `app.use()` get called?
+* **Question:** When does `app.use()` get called? 
 
-* **Your Answer:**
+* **Your Answer:** It is used to setup every middleware you want to use. It can be called generically or when specific paths are specified.
 
 ---
 
@@ -108,35 +109,35 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What type of thing is `app` and what is its purpose?
 
-* **Your Answer:**
+* **Your Answer:** App is an event emitter and function used to start the express server.
 
 * **Question:** What type of thing is `app.get()` and what is its purpose?
 
-* **Your Answer:**
+* **Your Answer:** App.get defines a route. When that path is specified, app.get() will proceed with a callback function specified by that route.
 
 * **Question:** What type of thing is `/` and what is its purpose?
 
-* **Your Answer:**
+* **Your Answer:** It's purpose is to separate filepaths. It will redirect next matching route if there is no additional params or file paths specified.
 
 * **Question:** What type of thing is `req` and what does it represent in the callback?
 
-* **Your Answer:**
+* **Your Answer:** "req" is an object that contains information about th HTTP request.
 
 * **Question:** What type of thing is `res` and what does it represent in the callback?
 
-* **Your Answer:**
+* **Your Answer:** "res" is the response taht is sent after the "res" is specified.
 
 * **Question:** What type of thing is `next` and what does it represent in the callback?
 
-* **Your Answer:**
+* **Your Answer:** "next" specifies the next function in the callback.
 
 * **Question:** Instead of a `GET` request, lets say we want to listen in for a `POST` request. What do you think you needs to change?
 
-* **Your Answer:**
+* **Your Answer:** POST is used to send data to the server. You might do this if you create, update or delete a file.
 
 * **Question:** Right now all of our requests will return a "Status Code" of 200. Define what a status code is and research how you could change it.
 
-* **Your Answer:**
+* **Your Answer:** A status code is a response provided by the server of the website you are trying to view. "200" status code means that your request was recieved, understood and is being processed by the server.
 
 ---
 
@@ -152,7 +153,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Question:** What is `req.params`? What else will you need to change if you change the path to `/my/name/is/:username`?
 
-* **Your Answer:**
+* **Your Answer:** It specifies the parameters required to return a callback function. Change "message: `Hello, ${req.params.name}!`" to "message: `Hello, ${req.params.username}!`"
 
 ---
 
@@ -219,27 +220,28 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
   const { generate: generateId } = require('shortid')
   ```
 
-* **Your Answer:**
+* **Your Answer:** ShortId creates short non-sequential unique ids. The ^ code creates a shortid. The syntax is called 
+destructuring and in thsi case it matches objects.
 
 * **Question:** What routes are currently available to you as part of this application?
 
-* **Your Answer:**
+* **Your Answer:** /vegetables and /vegetables/:id and it also specifies if it is doesnt not match /vegtables, to return a 404 with `Could not find vegetable with ID of ${id}`.
 
 * **Question:** Look for `helpers.validate` in the `app.js` file. What is this and how does it work?
 
-* **Your Answer:**
+* **Your Answer:** This validates the object/variable you defined. In this case helpers is a imported module. The .validate() function returns an array of validation errors.
 
 * **Question:** Try creating a new vegetable. Then, try restarting your server. What happens to the data you posted and why?
 
-* **Your Answer:**
+* **Your Answer:** The data is posted in the body with an unique id. If you dont specify a name and a key, then you ill get 'Bad Request' because of the validate function.
 
 * **Question:** Take a look at the last two `app.use()` methods at the end of the file. Describe how both work and what `err` is refers to.
 
-* **Your Answer:**
+* **Your Answer:** The last app.use() is a error handler function that acts as a catch-all.
 
 * **Question:** Take a look at the `package.json` file. What is [standardjs](https://standardjs.com/) and what will it do for you?
 
-* **Your Answer:**
+* **Your Answer:** It is a js module that cleans up your code by auto-formatting. It will also check your formatting when you run nom test.
 
 #### Resources
 
