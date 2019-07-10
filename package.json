@@ -1,7 +1,7 @@
 {
   "name": "02-express",
   "version": "1.0.0",
-  "description": "",
+  "description": "By the end of this lesson, you should be able to build a simple server with the [Express](https://expressjs.com/) framework for Node.js.",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon app.js"
@@ -16,5 +16,13 @@
   },
   "devDependencies": {
     "nodemon": "^1.19.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asakleiman/w2-express.git"
+  },
+  "bugs": {
+    "url": "https://github.com/asakleiman/w2-express/issues"
+  },
+  "homepage": "https://github.com/asakleiman/w2-express#readme"
 }
