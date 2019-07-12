@@ -30,6 +30,8 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Your Answer:**
 
+The node modules are installed when npm install is run so they don't need to be committed.
+
 ---
 
 - [ ] Take a look at the `package.json` file.
@@ -38,6 +40,14 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Your Answer:**
 
+devDependencies are dependencies required during development.
+
+nodemod: restarts application when file changes are detected
+
+body-parser: middle ware for parsing an incoming request.
+express: framework for building web applications.
+morgan: logs requests from client to server.
+
 ---
 
 - [ ] Try going to [http://localhost:5000/notfound](http://localhost:5000/notfound)
@@ -45,6 +55,8 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 * **Question:** Why do we get a response when we go to `/` but not `/notfound`?
 
 * **Your Answer:**
+
+There's no route for `/notfound`.
 
 ---
 
@@ -58,6 +70,8 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Your Answer:**
 
+They include information returned from the server including host, connection along with other information which are part of the GET request.
+
 ---
 
 - [ ] Add the following line **above** the `res.json()` line in your `app.js` file; then, make the request again.
@@ -69,6 +83,8 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Your Answer:**
 
+The `console.log()` can be found in the terminal. The header can be changed using the headers request.
+
 ---
 
 - [ ] Add the following line **above** the `res.json()` line in your `app.js` file; then, make a request again but this time change the URL to the following: `http://localhost:5000?course=javascript`
@@ -79,6 +95,8 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 * **Question:** What are query parameters? Try going to a couple of your favorite websites and paste an example of query parameters being used.
 
 * **Your Answer:**
+
+Query parameters are passed in through the url and converted to javascript. It's additional information for the request. 
 
 ---
 
@@ -93,6 +111,8 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 * **Question:** When does `app.use()` get called?
 
 * **Your Answer:**
+
+`app.use()` gets called every time a request is sent.
 
 ---
 
@@ -110,37 +130,53 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Your Answer:**
 
+`app` is an object with multiple methods.
+
 * **Question:** What type of thing is `app.get()` and what is its purpose?
 
 * **Your Answer:**
+
+`app.get()` finds a route for a GET request.
 
 * **Question:** What type of thing is `/` and what is its purpose?
 
 * **Your Answer:**
 
+`/` is there to help with the path of GET request.
+
 * **Question:** What type of thing is `req` and what does it represent in the callback?
 
 * **Your Answer:**
+
+`req` is an object and it's a request.
 
 * **Question:** What type of thing is `res` and what does it represent in the callback?
 
 * **Your Answer:**
 
+`res` is a response object.
+
 * **Question:** What type of thing is `next` and what does it represent in the callback?
 
 * **Your Answer:**
+
+`next` is the next available matching route.
 
 * **Question:** Instead of a `GET` request, lets say we want to listen in for a `POST` request. What do you think you needs to change?
 
 * **Your Answer:**
 
+need to change `app.get` to `app.post`.
+
 * **Question:** Right now all of our requests will return a "Status Code" of 200. Define what a status code is and research how you could change it.
 
 * **Your Answer:**
 
+A status codes are issued in response to a client's request. In this case, 200 means the request was ok.
+
 ---
 
-- [ ] Add the following route to your application; then, make a request again but this time change the URL to the following, making sure to replace `<your-name` with your acutal name: `http://localhost:5000/my/name/is/<your-name>`.
+- [ ] Add the following route to your application; then, make a request again but this time change the URL to the following, making sure to replace `<your-name>` with your actual name: `http://localhost:5000/my/name/is/<your-name>`.
   ```js
   app.get('/my/name/is/:name', (req, res, next) => {
     console.log(req.params)
@@ -153,6 +189,8 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 * **Question:** What is `req.params`? What else will you need to change if you change the path to `/my/name/is/:username`?
 
 * **Your Answer:**
+
+Would need to change `Hello, ${req.params.name}!` to `Hello, ${req.params.username}!`.
 
 ---
 
@@ -185,6 +223,7 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Your Answer:**
 
+
 ---
 
 - [ ] Take a moment to read through the following code that is already in `app.js`. If you need, take a look at the [morgan](https://www.npmjs.com/package/morgan) and [body-parser](https://www.npmjs.com/package/body-parser) packages on NPM:
@@ -199,6 +238,8 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Your Answer:**
 
+Morgan outputs logs which can cause problems on a production application used by many people but can be useful for a developer to see how the application is functioning. body-parser gives access to `req.body`.
+
 ---
 
 - [ ] Update one of the `POST` routes you've created by adding the following code before the response is set. Then, try sending a request body using Postman to that route.
@@ -209,6 +250,8 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 * **Question:** Try commenting out `body-parser` in your application. What happens and why?
 
 * **Your Answer:**
+
+This causes an error since it no longer has access to `req.body`.
 
 ---
 
@@ -221,25 +264,39 @@ Then, go to [http://localhost:5000/](http://localhost:5000) and you should see a
 
 * **Your Answer:**
 
+A unique id is being generated. The short id package is used to create short and unique ids. 
+
 * **Question:** What routes are currently available to you as part of this application?
 
 * **Your Answer:**
+
+`GET /vegetables`
+`GET /vegetables/:id` 
+`POST /vegetables`
 
 * **Question:** Look for `helpers.validate` in the `app.js` file. What is this and how does it work?
 
 * **Your Answer:**
 
+It's checking to make sure the post request contains the correct data.
+
 * **Question:** Try creating a new vegetable. Then, try restarting your server. What happens to the data you posted and why?
 
 * **Your Answer:**
+
+Since the data is stored in memory and not saved anywhere else, it is gone when the server is restarted.
 
 * **Question:** Take a look at the last two `app.use()` methods at the end of the file. Describe how both work and what `err` is refers to.
 
 * **Your Answer:**
 
+First `app.use` will return a 404 status and and error message if a path is not found and the second `app.use` logs the error message.
+
 * **Question:** Take a look at the `package.json` file. What is [standardjs](https://standardjs.com/) and what will it do for you?
 
 * **Your Answer:**
+
+It's code linter to standardize the code.
 
 #### Resources
 
